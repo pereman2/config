@@ -12,23 +12,9 @@ export CLASSPATH=".:/usr/local/lib/antlr.jar:$CLASSPATH"
 alias antlr4='java -jar /usr/local/lib/antlr.jar'
 alias grun='java org.antlr.v4.runtime.misc.TestRig'
 
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/peristocles/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/peristocles/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/peristocles/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/peristocles/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-if [ -e /Users/peristocles/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/peristocles/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
 export EDITOR='vim'
 export PROMPT='pericles %F{red}:: %F{green}%~ %f'$'\n'
+
+ctags=/usr/local/Cellar/ctags/5.8_1/bin/ctags
+alias python=python3
+alias vim=/usr/local/Cellar/vim/8.2.2150/bin/vim
