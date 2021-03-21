@@ -559,7 +559,7 @@ before packages are loaded."
         (quote (
 
                 ("n" "Notes" entry
-                 (file+function "~/Google Drive/notes/notes.org" org-reverse-datetree-goto-date-in-file)
+                 (file+function "~/Dropbox/notes/notes.org" org-reverse-datetree-goto-date-in-file)
                  "* %^{Description} %^g
   Added: %t
   %?
@@ -567,7 +567,7 @@ before packages are loaded."
  ")
 
                 ("t" "Task" entry
-                 (file+function "~/Google Drive/notes/notes.org" org-reverse-datetree-goto-date-in-file)
+                 (file+function "~/Dropbox/notes/notes.org" org-reverse-datetree-goto-date-in-file)
                  "* TODO %^{Description} %^gkanban:
   Added: %t
   %?
