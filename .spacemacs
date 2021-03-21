@@ -47,7 +47,11 @@ This function should only modify configuration layer settings."
      ;; lsp
      markdown
      multiple-cursors
-     ;; org
+     org
+     ivy
+     deft
+     emacs-lisp
+     pdf-tools
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -55,7 +59,6 @@ This function should only modify configuration layer settings."
      syntax-checking
      ;; version-control
      themes-megapack
-     elpy
      treemacs)
 
 
@@ -67,7 +70,26 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      ;; Aesthetics
+                                      doom-themes
+                                      org-bullets
+                                      olivetti
+                                      ;; For writing
+                                      writegood-mode
+                                      langtool
+                                      ;; For org-drill
+                                      org-plus-contrib
+                                      ;; For defining nice org-capture templates
+                                      org-starter
+                                      dash
+                                      dash-functional
+                                      org-reverse-datetree
+                                      ;; For annotating PDFs
+                                      org-noter
+                                      ;; For making a kanban from TODO entries
+                                      org-kanban
+                                      )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -219,8 +241,8 @@ It should only modify the values of Spacemacs settings."
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(gruvbox-dark-hard
-		   spacemacs-dark
-		   spacemacs-light)
+                         spacemacs-dark
+                         spacemacs-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -532,7 +554,85 @@ dump.")
 This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
-before packages are loaded.")
+before packages are loaded."
+  (setq org-capture-templates
+        (quote (
+
+                ("n" "Notes" entry
+                 (file+function "~/Google Drive/notes/notes.org" org-reverse-datetree-goto-date-in-file)
+                 "* %^{Description} %^g
+  Added: %t
+  %?
+
+ ")
+
+                ("t" "Task" entry
+                 (file+function "~/Google Drive/notes/notes.org" org-reverse-datetree-goto-date-in-file)
+                 "* TODO %^{Description} %^gkanban:
+  Added: %t
+  %?
+
+ ")
+
+                )))
+  ;; Text takes up 85% of the buffer
+  (setq olivetti-body-width 0.85)
+  ;; Starts text files (like .org .txt .md) in olivetti mode
+  (add-hook 'text-mode-hook 'olivetti-mode)
+  (add-hook 'org-mode-hook (lambda ()
+                             "Beautify Org Checkbox Symbol"
+                             (push '("[ ]" .  "☐") prettify-symbols-alist)
+                             (push '("[X]" . "☑" ) prettify-symbols-alist)
+                             (push '("[-]" . "❍" ) prettify-symbols-alist)
+                             (prettify-symbols-mode)))
+  (defface org-checkbox-done-text
+    '((t (:foreground "#71696A")))
+    "Face for the text part of a checked org-mode checkbox.")
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(variable-pitch ((t (:weight normal :height 1.1 :width normal :family "Monospace"))))
+   '(fixed-pitch ((t (:family "Jetbrains Mono"))))
+   '(org-block ((t (:inherit (shadow fixed-pitch)))))
+   '(org-checkbox ((t (:foreground "Pink" :inherit (bold fixed-pitch)))))
+   '(org-checkbox-statistics-done ((t (:inherit org-done))))
+   '(org-code ((t (:inherit (shadow fixed-pitch)))))
+   '(org-default ((t (:inherit variable-pitch :family "Monospace"))))
+   '(org-document-info ((t (:inherit fixed-pitch :foreground "pale turquoise"))))
+   '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+   '(org-document-title ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace" :height 1.5 :underline nil))))
+   '(org-done ((t (:inherit fixed-pitch :foreground "PaleGreen" :weight bold))))
+   '(org-footnote ((t (:inherit variable-pitch :foreground "Cyan" :underline t))))
+   '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+   '(org-level-1 ((t (:inherit variable-pitch :foreground "#c2c2b0" :slant italic :weight semi-light :height 1.75 :width normal :foundry "nil" :family "Monospace"))))
+   '(org-level-2 ((t (:inherit variable-pitch :foreground "#c2c2b0" :height 1.5 :width normal :foundry "nil" :family "Monospace"))))
+   '(org-level-3 ((t (:inherit variable-pitch :foreground "#b0a2e7" :slant italic :weight normal :height 1.25 :width normal :foundry "nil" :family "Monospace"))))
+   '(org-level-4 ((t (:inherit variable-pitch))))
+   '(org-level-5 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
+   '(org-level-6 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
+   '(org-level-7 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
+   '(org-level-8 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
+   '(org-link ((t (:inherit (link variable-pitch) :slant normal))))
+   '(org-list-dt ((t (:inherit fixed-pitch :foreground "#819cd6" :weight bold))))
+   '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+   '(org-property-value ((t (:inherit fixed-pitch))) t)
+   '(org-quote ((t (:background "#32353f" :family "Monospace"))))
+   '(org-todo ((t (:inherit fixed-pitch :foreground "Pink" :weight bold))))
+   '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
+   '(org-verse ((t (:inherit fixed-pitch))))
+   )
+  ;; Makes some things look nicer
+  (setq org-startup-indented t
+        org-pretty-entities t
+        ;; show actually italicized text instead of /italicized text/
+        org-hide-emphasis-markers t
+        org-agenda-block-separator ""
+        org-fontify-whole-heading-line t
+        org-fontify-done-headline t
+        org-fontify-quote-and-verse-blocks t)
+  )
 
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -548,7 +648,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("6b5c518d1c250a8ce17463b7e435e9e20faa84f3f7defba8b579d4f5925f60c1" default))
+   '("83e0376b5df8d6a3fbdfffb9fb0e8cf41a11799d9471293a810deb7586c131e6" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "801a567c87755fe65d0484cb2bded31a4c5bb24fd1fe0ed11e6c02254017acb2" "1623aa627fecd5877246f48199b8e2856647c99c6acdab506173f9bb8b0a41ac" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "e6df46d5085fde0ad56a46ef69ebb388193080cc9819e2d6024c9c6e27388ba9" "6b5c518d1c250a8ce17463b7e435e9e20faa84f3f7defba8b579d4f5925f60c1" default))
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    '(web-mode typescript-mode import-js grizzl emmet-mode add-node-modules-path elpy yapfify stickyfunc-enhance sphinx-doc pytest pyenv-mode py-isort poetry transient pippel pipenv pyvenv pip-requirements nose lsp-python-ms lsp-pyright live-py-mode importmagic epc ctable concurrent deferred helm-pydoc helm-gtags helm-cscope xcscope ggtags dap-mode lsp-treemacs bui lsp-mode markdown-mode cython-mode counsel-gtags counsel swiper ivy company-anaconda company blacken anaconda-mode pythonic gruvbox-theme ws-butler writeroom-mode visual-fill-column winum volatile-highlights vi-tilde-fringe uuidgen undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil treemacs cfrs ht pfuture posframe toc-org symon symbol-overlay string-inflection string-edit spaceline-all-the-icons memoize all-the-icons spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode password-generator paradox spinner overseer org-superstar open-junk-file nameless multi-line shut-up macrostep lorem-ipsum link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-xref helm-themes helm-swoop helm-purpose window-purpose imenu-list helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio flycheck-package package-lint flycheck flycheck-elsa flx-ido flx fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired f evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection annalist evil-cleverparens smartparens evil-args evil-anzu anzu eval-sexp-fu emr iedit clang-format projectile paredit list-utils pkg-info epl elisp-slime-nav editorconfig dumb-jump s drag-stuff dired-quick-sort devdocs define-word dash column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile packed aggressive-indent ace-window ace-link ace-jump-helm-line helm avy helm-core popup which-key use-package pcre2el org-plus-contrib hydra lv hybrid-mode font-lock+ evil goto-chg dotenv-mode diminish bind-map bind-key async)))
@@ -557,5 +657,33 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(fixed-pitch ((t (:family "Jetbrains Mono"))))
+ '(org-block ((t (:inherit (shadow fixed-pitch)))))
+ '(org-checkbox ((t (:foreground "Pink" :inherit (bold fixed-pitch)))))
+ '(org-checkbox-statistics-done ((t (:inherit org-done))))
+ '(org-code ((t (:inherit (shadow fixed-pitch)))))
+ '(org-default ((t (:inherit variable-pitch :family "Monospace"))))
+ '(org-document-info ((t (:inherit fixed-pitch :foreground "pale turquoise"))))
+ '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+ '(org-document-title ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace" :height 1.5 :underline nil))))
+ '(org-done ((t (:inherit fixed-pitch :foreground "PaleGreen" :weight bold))))
+ '(org-footnote ((t (:inherit variable-pitch :foreground "Cyan" :underline t))))
+ '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+ '(org-level-1 ((t (:inherit variable-pitch :foreground "#c2c2b0" :slant italic :weight semi-light :height 1.75 :width normal :foundry "nil" :family "Monospace"))))
+ '(org-level-2 ((t (:inherit variable-pitch :foreground "#c2c2b0" :height 1.5 :width normal :foundry "nil" :family "Monospace"))))
+ '(org-level-3 ((t (:inherit variable-pitch :foreground "#b0a2e7" :slant italic :weight normal :height 1.25 :width normal :foundry "nil" :family "Monospace"))))
+ '(org-level-4 ((t (:inherit variable-pitch))))
+ '(org-level-5 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
+ '(org-level-6 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
+ '(org-level-7 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
+ '(org-level-8 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
+ '(org-link ((t (:inherit (link variable-pitch) :slant normal))))
+ '(org-list-dt ((t (:inherit fixed-pitch :foreground "#819cd6" :weight bold))))
+ '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+ '(org-property-value ((t (:inherit fixed-pitch))) t)
+ '(org-quote ((t (:background "#32353f" :family "Monospace"))))
+ '(org-todo ((t (:inherit fixed-pitch :foreground "Pink" :weight bold))))
+ '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
+ '(org-verse ((t (:inherit fixed-pitch))))
+ '(variable-pitch ((t (:weight normal :height 1.1 :width normal :family "Monospace")))))
 )
