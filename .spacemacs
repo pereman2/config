@@ -555,24 +555,32 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
+  (add-hook 'prog-mode-hook 'linum-mode)
   (setq org-capture-templates
         (quote (
 
                 ("n" "Notes" entry
-                 (file+function "~/Dropbox/notes/notes.org" org-reverse-datetree-goto-date-in-file)
-                 "* %^{Description} %^g
+                 (file+headline "~/Dropbox/notes/notes.org" "Quick notes")
+                 "*** %^{Description} %^g
   Added: %t
   %?
 
  ")
 
                 ("t" "Task" entry
-                 (file+function "~/Dropbox/notes/notes.org" org-reverse-datetree-goto-date-in-file)
-                 "* TODO %^{Description} %^gkanban:
-  Added: %t
-  %?
-
- ")
+                 (file+headline "~/Dropbox/notes/notes.org" "Inbox")
+                 "**** TODO %^{TITLE} %^G\n%i%?"
+                 :prepend t)
+                ;; Create TODO item from selected code comment
+                ("c"	; key
+                 "Code"	; name
+                 entry	; type
+                 (file+headline "~/Dropbox/notes/notes.org" "Code") ; target
+                 "**** TODO %^{TITLE} %^G\n:PROPERTIES:\n %U:Source: %an%i%?" ; template
+                 :prepend t	 ; properties
+                 :empty-lines 1	 ; properties
+                 :created t	 ; properties
+                 :kill-buffer t) ; properties
 
                 )))
   ;; Text takes up 85% of the buffer
@@ -602,13 +610,13 @@ before packages are loaded."
    '(org-default ((t (:inherit variable-pitch :family "Monospace"))))
    '(org-document-info ((t (:inherit fixed-pitch :foreground "pale turquoise"))))
    '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
-   '(org-document-title ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace" :height 1.5 :underline nil))))
+    '(org-document-title ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace" :height 1.3 :underline nil))))
    '(org-done ((t (:inherit fixed-pitch :foreground "PaleGreen" :weight bold))))
    '(org-footnote ((t (:inherit variable-pitch :foreground "Cyan" :underline t))))
    '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
-   '(org-level-1 ((t (:inherit variable-pitch :foreground "#c2c2b0" :slant italic :weight semi-light :height 1.75 :width normal :foundry "nil" :family "Monospace"))))
-   '(org-level-2 ((t (:inherit variable-pitch :foreground "#c2c2b0" :height 1.5 :width normal :foundry "nil" :family "Monospace"))))
-   '(org-level-3 ((t (:inherit variable-pitch :foreground "#b0a2e7" :slant italic :weight normal :height 1.25 :width normal :foundry "nil" :family "Monospace"))))
+   '(org-level-1 ((t (:inherit variable-pitch :foreground "#c2c2b0" :slant italic :weight semi-light :height 1.2 :width normal :foundry "nil" :family "Monospace"))))
+   '(org-level-2 ((t (:inherit variable-pitch :foreground "#c2c2b0" :height 1.1 :width normal :foundry "nil" :family "Monospace"))))
+   '(org-level-3 ((t (:inherit variable-pitch :foreground "#b0a2e7" :slant italic :weight normal :height 1.1 :width normal :foundry "nil" :family "Monospace"))))
    '(org-level-4 ((t (:inherit variable-pitch))))
    '(org-level-5 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
    '(org-level-6 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
@@ -651,7 +659,7 @@ This function is called at the very end of Spacemacs initialization."
    '("83e0376b5df8d6a3fbdfffb9fb0e8cf41a11799d9471293a810deb7586c131e6" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "801a567c87755fe65d0484cb2bded31a4c5bb24fd1fe0ed11e6c02254017acb2" "1623aa627fecd5877246f48199b8e2856647c99c6acdab506173f9bb8b0a41ac" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "e6df46d5085fde0ad56a46ef69ebb388193080cc9819e2d6024c9c6e27388ba9" "6b5c518d1c250a8ce17463b7e435e9e20faa84f3f7defba8b579d4f5925f60c1" default))
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   '(web-mode typescript-mode import-js grizzl emmet-mode add-node-modules-path elpy yapfify stickyfunc-enhance sphinx-doc pytest pyenv-mode py-isort poetry transient pippel pipenv pyvenv pip-requirements nose lsp-python-ms lsp-pyright live-py-mode importmagic epc ctable concurrent deferred helm-pydoc helm-gtags helm-cscope xcscope ggtags dap-mode lsp-treemacs bui lsp-mode markdown-mode cython-mode counsel-gtags counsel swiper ivy company-anaconda company blacken anaconda-mode pythonic gruvbox-theme ws-butler writeroom-mode visual-fill-column winum volatile-highlights vi-tilde-fringe uuidgen undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil treemacs cfrs ht pfuture posframe toc-org symon symbol-overlay string-inflection string-edit spaceline-all-the-icons memoize all-the-icons spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode password-generator paradox spinner overseer org-superstar open-junk-file nameless multi-line shut-up macrostep lorem-ipsum link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-xref helm-themes helm-swoop helm-purpose window-purpose imenu-list helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio flycheck-package package-lint flycheck flycheck-elsa flx-ido flx fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired f evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection annalist evil-cleverparens smartparens evil-args evil-anzu anzu eval-sexp-fu emr iedit clang-format projectile paredit list-utils pkg-info epl elisp-slime-nav editorconfig dumb-jump s drag-stuff dired-quick-sort devdocs define-word dash column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile packed aggressive-indent ace-window ace-link ace-jump-helm-line helm avy helm-core popup which-key use-package pcre2el org-plus-contrib hydra lv hybrid-mode font-lock+ evil goto-chg dotenv-mode diminish bind-map bind-key async)))
+   '(traad web-mode typescript-mode import-js grizzl emmet-mode add-node-modules-path elpy yapfify stickyfunc-enhance sphinx-doc pytest pyenv-mode py-isort poetry transient pippel pipenv pyvenv pip-requirements nose lsp-python-ms lsp-pyright live-py-mode importmagic epc ctable concurrent deferred helm-pydoc helm-gtags helm-cscope xcscope ggtags dap-mode lsp-treemacs bui lsp-mode markdown-mode cython-mode counsel-gtags counsel swiper ivy company-anaconda company blacken anaconda-mode pythonic gruvbox-theme ws-butler writeroom-mode visual-fill-column winum volatile-highlights vi-tilde-fringe uuidgen undo-tree treemacs-projectile treemacs-persp treemacs-icons-dired treemacs-evil treemacs cfrs ht pfuture posframe toc-org symon symbol-overlay string-inflection string-edit spaceline-all-the-icons memoize all-the-icons spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode password-generator paradox spinner overseer org-superstar open-junk-file nameless multi-line shut-up macrostep lorem-ipsum link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-xref helm-themes helm-swoop helm-purpose window-purpose imenu-list helm-projectile helm-org helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio flycheck-package package-lint flycheck flycheck-elsa flx-ido flx fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired f evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-easymotion evil-collection annalist evil-cleverparens smartparens evil-args evil-anzu anzu eval-sexp-fu emr iedit clang-format projectile paredit list-utils pkg-info epl elisp-slime-nav editorconfig dumb-jump s drag-stuff dired-quick-sort devdocs define-word dash column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile packed aggressive-indent ace-window ace-link ace-jump-helm-line helm avy helm-core popup which-key use-package pcre2el org-plus-contrib hydra lv hybrid-mode font-lock+ evil goto-chg dotenv-mode diminish bind-map bind-key async)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -665,13 +673,13 @@ This function is called at the very end of Spacemacs initialization."
  '(org-default ((t (:inherit variable-pitch :family "Monospace"))))
  '(org-document-info ((t (:inherit fixed-pitch :foreground "pale turquoise"))))
  '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
- '(org-document-title ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace" :height 1.5 :underline nil))))
+ '(org-document-title ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace" :height 1.3 :underline nil))))
  '(org-done ((t (:inherit fixed-pitch :foreground "PaleGreen" :weight bold))))
  '(org-footnote ((t (:inherit variable-pitch :foreground "Cyan" :underline t))))
  '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
- '(org-level-1 ((t (:inherit variable-pitch :foreground "#c2c2b0" :slant italic :weight semi-light :height 1.75 :width normal :foundry "nil" :family "Monospace"))))
- '(org-level-2 ((t (:inherit variable-pitch :foreground "#c2c2b0" :height 1.5 :width normal :foundry "nil" :family "Monospace"))))
- '(org-level-3 ((t (:inherit variable-pitch :foreground "#b0a2e7" :slant italic :weight normal :height 1.25 :width normal :foundry "nil" :family "Monospace"))))
+ '(org-level-1 ((t (:inherit variable-pitch :foreground "#c2c2b0" :slant italic :weight semi-light :height 1.2 :width normal :foundry "nil" :family "Monospace"))))
+ '(org-level-2 ((t (:inherit variable-pitch :foreground "#c2c2b0" :height 1.1 :width normal :foundry "nil" :family "Monospace"))))
+ '(org-level-3 ((t (:inherit variable-pitch :foreground "#b0a2e7" :slant italic :weight normal :height 1.1 :width normal :foundry "nil" :family "Monospace"))))
  '(org-level-4 ((t (:inherit variable-pitch))))
  '(org-level-5 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
  '(org-level-6 ((t (:inherit default :weight bold :foreground "#c0c5ce" :font "Monospace"))))
