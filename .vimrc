@@ -17,8 +17,8 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 syntax on
 let mapleader=","
 set foldcolumn=0
-set tabstop=4
-set shiftwidth=4
+set tabstop=8
+set shiftwidth=8
 set softtabstop=4
 set noerrorbells
 set smartindent
