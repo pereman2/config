@@ -8,11 +8,14 @@ function install_oh_my_zsh() {
     # auto suggestions
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 }
+function install_fuzzy() {
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+}
 
 function move_dotfiles() {
     cp .zshrc ~/.zhsrc
     cp .tmux.conf ~/.tmux.conf
 }
 
-install_oh_my_zsh
-move_dotfiles
+install_fuzzy

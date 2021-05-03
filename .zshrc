@@ -4,7 +4,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
+export TERM=xterm-256color
 export ZSH="/Users/peristocles/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(
@@ -12,6 +12,8 @@ plugins=(
     dnf
     zsh-autosuggestions
     tmux
+    fzf
+    colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -24,6 +26,7 @@ fi
 
 #export PROMPT='pericles %F{red}:: %F{green}%~ %f'$'\n'
 
+export FZF_BASE=$HOME/.fzf
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH="/usr/local/opt/bison/bin:$PATH"
 export PATH=/Users/peristocles/contributions/depot_tools:$PATH
@@ -35,3 +38,5 @@ alias dc=docker-compose
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
