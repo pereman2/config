@@ -1,17 +1,37 @@
-export EDITOR='nvim'
-alias vim=nvim
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export ZSH="/Users/peristocles/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(
+    git
+    dnf
+    zsh-autosuggestions
+    tmux
+)
+
+source $ZSH/oh-my-zsh.sh
+source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+export EDITOR='vim'
 if [ "$TMUX" = "" ]; then tmux; fi
-export PATH=/Users/peristocles/contributions/depot_tools:$PATH
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+#export PROMPT='pericles %F{red}:: %F{green}%~ %f'$'\n'
+
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH="/usr/local/opt/bison/bin:$PATH"
-
-export PROMPT='pericles %F{red}:: %F{green}%~ %f'$'\n'
-
+export PATH=/Users/peristocles/contributions/depot_tools:$PATH
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-ctags=/usr/local/Cellar/ctags/5.8_1/bin/ctags
+
 alias python=python3
-alias vim=/usr/local/Cellar/vim/8.2.2150/bin/vim
 alias peak="ssh -X -p 3322 pediabo@peak8.gap.upv.es"
+alias dc=docker-compose
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
