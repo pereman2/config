@@ -10,10 +10,16 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'junegunn/goyo.vim'
-
-" Color schemes
+Plug 'vim-scripts/taglist.vim'
+"colors
 Plug 'jubnzv/gruvbox'                 " Color scheme
-Plug 'dracula/vim'                 " Color scheme
+Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim'
+Plug 'bluz71/vim-nightfly-guicolors'
+
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" Plug 'nvim-treesitter/playground'
+Plug 'neovim/nvim-lspconfig'
 
 Plug 'jreybert/vimagit'
 Plug 'lukesmithxyz/vimling'
@@ -35,7 +41,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'powerline/fonts'
 
 Plug 'tpope/vim-fugitive'
-Plug 'Raimondi/delimitMate' " autoclose brackets
+" Plug 'Raimondi/delimitMate' " autoclose brackets is for pussies
 
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -45,9 +51,14 @@ Plug 'mtdl9/vim-log-highlighting'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " latex
 Plug 'lervag/vimtex'
+
+"go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 
-set guifont=Hack
 set title
 set go=a
 set mouse=a
@@ -58,6 +69,13 @@ set noruler
 set laststatus=0
 set noshowcmd
 set autoread
+set noswapfile
+set lazyredraw
+
+autocmd Filetype cpp,cc,h set tabstop=2
+autocmd Filetype cpp,cc,h set shiftwidth=2
+autocmd Filetype cpp,cc,h set expandtab
+
 
 map <leader>1 1gt
 map <leader>2 2gt
@@ -86,10 +104,31 @@ set number relativenumber
 set wildmode=longest,list,full
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" MAPPINGS  ===============================================================================
+map <leader>f :Files
+map <leader>1  1gt
+map <leader>2  2gt
+map <leader>3  3gt
+map <leader>4  4gt
+map <leader>5  5gt
+map <leader>6  6gt
+map <leader>7  7gt
+map <leader>8  8gt
+
+" COMMANDS  ===============================================================================
+"latex
+:command -nargs=* -bar Ref :norm a \ref{}
+:command -nargs=* -bar Emph :norm a \emph{}
+:command -nargs=* -bar Code :norm a \begin{lstlisting}[language=C]\n\end{lstlisting}
+:command -nargs=* -bar Math :norm a \(\)
+:command -nargs=* -bar Math2 :norm a \[\]
+
+"  =========================================================================================
 " Perform dot commands over visual blocks:
 " vnoremap . :normal .<CR>
 " Goyo plugin makes text more readable when writing prose:
-" map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+"map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
 " Spell-check set to <leader>o, 'o' for 'orthography':
 map <leader>o :setlocal spell! spelllang=en_us<CR>
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
@@ -135,6 +174,8 @@ autocmd VimLeave *.tex !texclear %
 
 " Ensure files are read as what I want:
 let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+" let g:vimwiki_folding='expr'
+" set foldmethod=expr
 map <leader>v :VimwikiIndex
 map <leader>d :VimwikiDiaryIndex
 map <leader>dg :VimwikiDiaryGenerateLinks
@@ -155,9 +196,15 @@ autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
 autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritePre * %s/\n\+\%$//e
-autocmd BufWritePre *.[ch] %s/\%$/\r/e
+
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
 autocmd BufWritePost bm-files,bm-dirs !shortcuts
@@ -207,6 +254,13 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 " let g:gruvbox_italic=0
 set bg=dark
 " colorscheme gruvbox
+" set Vim-specific sequences for RGB colors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
 
 " colorscheme nord
 
