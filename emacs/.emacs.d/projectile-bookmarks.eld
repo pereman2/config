@@ -1,0 +1,1 @@
+("~/redhat/ceph/" "~/.emacs.d/init/" "~/Dropbox/notes/org/" "~/Dropbox/notes/vimwiki/" "~/Dropbox/notes/" "~/fun/packo/" "~/Downloads/")

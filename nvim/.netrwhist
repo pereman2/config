@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/peristocles/redhat/ceph/build'
+let g:netrw_dirhist_9='/home/peristocles/redhat/ceph/build.ceph/out'
+let g:netrw_dirhist_8='/home/peristocles/redhat/ceph/bench'
+let g:netrw_dirhist_7='/home/peristocles/redhat/ceph/build.latest'
+let g:netrw_dirhist_6='/home/peristocles/redhat/ceph/build.ceph/out'
+let g:netrw_dirhist_5='/home/peristocles/redhat/ceph/build.latest'
+let g:netrw_dirhist_4='/home/peristocles/redhat/ceph'
+let g:netrw_dirhist_3='/home/peristocles/redhat/ceph/build.latest'
+let g:netrw_dirhist_2='/home/peristocles/redhat/ceph/bench'
+let g:netrw_dirhist_1='/home/peristocles/redhat/ceph/build.latest'
