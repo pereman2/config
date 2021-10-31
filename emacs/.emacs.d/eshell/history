@@ -29,3 +29,23 @@ cd
 cd .emacs.d/ext-packages/
 wget https://raw.githubusercontent.com/emacs-evil/evil-magit/master/evil-magit.el
 vi 
+ls
+cd ../../
+./do_cmake.sh 
+make
+g++ test.cpp && ./a.out
+cd ../../fun/chef
+g++ test.cpp && ./a.out
+make
+make
+make run
+cd
+cd contributions/config/
+cd emacs/
+./get.sh
+ls
+ls -la
+vim get.sh
+ls
+cat get.sh 
+git

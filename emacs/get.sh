@@ -2,4 +2,8 @@
 
 
 cp $HOME/.emacs .
-cp -r $HOME/.emacs.d/ .
+if [[ $OS -eq OSX ]]; then
+	cp -R $HOME/.emacs.d/ .emacs.d
+else
+	cp -R $HOME/.emacs.d/ .
+fi

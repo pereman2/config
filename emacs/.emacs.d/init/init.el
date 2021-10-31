@@ -7,6 +7,9 @@
 ;; Requires
 ;; (require 'magit)
 
+(require 'which-key)
+(which-key-mode)
+
 (require 'org)
 
 (require 'evil)
@@ -115,3 +118,10 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (define-key evil-motion-state-map (kbd "C-g") 'org-open-at-point)
+
+;; macos
+(setq mac-option-key-is-meta nil
+      mac-command-key-is-meta t
+      mac-command-modifier 'meta
+      mac-option-modifier 'none)
+
