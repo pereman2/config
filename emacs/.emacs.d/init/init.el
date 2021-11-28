@@ -3,16 +3,47 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 (setq sml/no-confirm-load-theme t)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
 
 ;; Requires
 ;; (require 'magit)
+(require 'package)
 
-(require 'which-key)
+(setq package-archives
+      '(("marmalade" . "http://marmalade-repo.org/packages/")
+        ("melpa" . "http://melpa.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")))
+
+;; (package-initialize)
+;; TODO: move to use package
+;; (use-package flycheck
+;;   :ensure t
+;;   :init (global-flycheck-mode))
+
+(use-package multi-term
+  :ensure)
+(use-package which-key
+  :ensure)
+(use-package treemacs
+  :ensure)
+(use-package treemacs-evil
+  :ensure)
+(use-package treemacs-projectile
+  :ensure)
+(use-package lsp-treemacs
+  :ensure)
 (which-key-mode)
 
-(require 'org)
+(use-package org
+  :ensure)
+(use-package org-bullets
+  :ensure)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-(require 'evil)
+
+(use-package evil
+  :ensure)
 (evil-mode 1)
 
 (add-to-list 'load-path "~/.emacs.d/ext-packages")
@@ -20,27 +51,84 @@
 (load-library "work")
 (load-library "evil-magit")
 
-(require 'evil-magit)
-(require 'evil-leader)
+(require 'evil-magit
+         :ensure)
+(require 'evil-leader
+         :ensure)
 
-(require 'projectile)
+(use-package projectile
+  :ensure)
 (projectile-mode +1)
+(setq projectile-enable-caching t)
 
-(require 'ivy)
+(use-package ivy
+  :ensure)
 (ivy-mode 1)
 ;; Recommended keymap prefix on Windows/Linux
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
-(require 'ccls)
+(use-package ccls)
 (setq ccls-executable "/usr/bin/ccls")
 
-(require 'ggtags)
+(use-package ggtags
+  :ensure
+  )
 
- 
+(use-package lsp-mode
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+         ;; (XXX-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
+
+(use-package lsp-python-ms
+  :ensure t
+  :init (setq lsp-python-ms-auto-install-server t)
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-python-ms)
+                         (lsp))))  ; or lsp-deferred
+
+(use-package creamsody-theme
+  :ensure
+  )
+
+(use-package good-scroll
+  :ensure
+  :config
+  (good-scroll-mode 1)
+  )
+
+(use-package ergoemacs-status
+  :ensure
+  :config
+  (ergoemacs-status-mode 1)
+  )
+
+  (use-package hl-todo
+    :hook (prog-mode . hl-todo-mode)
+    :config
+    (setq hl-todo-highlight-punctuation ":"
+          hl-todo-keyword-faces
+          `(("TODO"       warning bold)
+            ("FIXME"      error bold)
+            ("HACK"       font-lock-constant-face bold)
+            ("REVIEW"     font-lock-keyword-face bold)
+            ("NOTE"       success bold)
+            ("DEPRECATED" font-lock-doc-face bold))))
+
+(use-package typescript-mode
+  :ensure
+  )
 ;; Load theme
 ;; (load-theme 'gruvbox-dark-soft)
 ;; (load-theme 'sanityinc-tomorrow-eighties t)
-(load-theme 'sanityinc-tomorrow-eighties t)
+;; (load-theme 'sanityinc-tomorrow-eighties t)
+;; (load-theme 'sanityinc-tomorrow-bright t)
+;; (load-theme 'sanityinc-tomorrow-night t)
+;; (load-theme 'zenburn t)
+(load-theme 'creamsody t)
 
 ;; relative numbers
 (defvar my-linum-current-line-number 0)
@@ -81,6 +169,9 @@
   "r" 'ggtags-grep
   "`" 'projectile-switch-project
   "b" 'switch-to-buffer
+  "h" 'ff-find-other-file
+  "m" 'man
+  "t" 'multi-term ;; open terminal
   "k" 'kill-buffer)
 
 
@@ -124,4 +215,21 @@
       mac-command-key-is-meta t
       mac-command-modifier 'meta
       mac-option-modifier 'none)
+
+
+;; underscore as word
+(modify-syntax-entry ?_ "w")
+
+;; todoist
+(setq todoist-token "9a393c690f335cf9f137f418d9257717866d5c23")
+
+;; lsp
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq lsp-idle-delay 0.500)
+
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
+(lsp-mode 1)
+(lsp-treemacs-sync-mode 1)
 
