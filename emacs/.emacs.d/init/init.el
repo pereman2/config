@@ -21,8 +21,8 @@
 ;;   :ensure t
 ;;   :init (global-flycheck-mode))
 
-(use-package multi-term
-  :ensure)
+;; (use-package multi-term
+;;   :ensure)
 (use-package which-key
   :ensure)
 (use-package treemacs
@@ -46,14 +46,9 @@
   :ensure)
 (evil-mode 1)
 
-(add-to-list 'load-path "~/.emacs.d/ext-packages")
-(load-library "evil-leader")
-(load-library "work")
-(load-library "evil-magit")
-
-(require 'evil-magit
+(use-package 'evil-magit
          :ensure)
-(require 'evil-leader
+(use-package 'evil-leader
          :ensure)
 
 (use-package projectile
@@ -245,4 +240,3 @@
 (add-hook 'c++-mode-hook 'lsp)
 (lsp-mode 1)
 (lsp-treemacs-sync-mode 1)
-

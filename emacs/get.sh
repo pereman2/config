@@ -2,8 +2,7 @@
 
 
 cp $HOME/.emacs .
-if [[ $OS = OSX ]]; then
-	cp -R $HOME/.emacs.d/ .emacs.d
-else
-	cp -R $HOME/.emacs.d/ .
-fi
+mkdir -p .emacs.d/init
+cp $HOME/.emacs.d/init/init.el .emacs.d/init/
+mkdir -p .doom.d
+cp $HOME/.doom.d/* .doom.d

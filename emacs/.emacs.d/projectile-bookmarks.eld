@@ -1,1 +1,0 @@
-("~/.emacs.d/init/" "~/redhat/ceph/" "~/Dropbox/notes/vimwiki/" "~/Dropbox/notes/" "~/fun/packo/" "~/Downloads/")

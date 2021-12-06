@@ -8,7 +8,12 @@
 
 (global-set-key (kbd "M-x") 'helm-M-x)
 
-(load-file "~/.emacs.d/init/init.el")
+; GNU EMACS THIS
+;; (load-file "~/.emacs.d/init/init.el")
+
+; DOOM EMACS THIS
+(load-file "~/.emacs.d/init.el")
+(load-file "~/.emacs.d/modules/init.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
