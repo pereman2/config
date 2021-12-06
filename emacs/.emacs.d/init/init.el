@@ -121,6 +121,16 @@
 (use-package typescript-mode
   :ensure
   )
+
+(use-package benchmark-init
+  :ensure t
+  :config
+  ;; To disable collection of benchmark data after init is done.
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+(use-package vterm
+  :ensure t
+  :load-path  "path/to/emacs-libvterm/")
+
 ;; Load theme
 ;; (load-theme 'gruvbox-dark-soft)
 ;; (load-theme 'sanityinc-tomorrow-eighties t)
@@ -132,6 +142,8 @@
 
 ;; relative numbers
 (defvar my-linum-current-line-number 0)
+
+
 
 (setq linum-format 'my-linum-relative-line-numbers)
 
@@ -171,7 +183,8 @@
   "b" 'switch-to-buffer
   "h" 'ff-find-other-file
   "m" 'man
-  "t" 'multi-term ;; open terminal
+  "c" 'compile
+  "t" 'vterm ;; open terminal
   "k" 'kill-buffer)
 
 
