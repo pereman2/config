@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-nord)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -62,7 +62,9 @@
 (define-key evil-motion-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-motion-state-map (kbd "C-k") 'evil-window-up)
 (define-key evil-motion-state-map (kbd "C-l") 'evil-window-right)
-(define-key evil-motion-state-map (kbd "Y") 'evil-window-right)
+
+;; tread _ as part of the word
+(modify-syntax-entry ?_ "w")
 
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
@@ -77,3 +79,6 @@
   "c" 'compile
   "t" 'vterm ;; open terminal
   "k" 'kill-buffer)
+(setq! evil-want-Y-yank-to-eol nil)
+;; projectile cache
+(setq projectile-indexing-method 'alien)

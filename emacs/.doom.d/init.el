@@ -22,8 +22,8 @@
        :completion
        company           ; the ultimate code completion backend
        helm              ; the *other* search engine for love and life
-       ;;ido               ; the other *other* search engine...
-       ;;ivy               ; a search engine for love and life
+       ;; ido               ; the other *other* search engine...
+       ivy               ; a search engine for love and life
        vertico           ; the search engine of the future
 
        :ui
@@ -33,7 +33,7 @@
        doom-quit         ; DOOM quit-message prompts when you quit Emacs
        ;;(emoji +unicode)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
-       evil-leader
+       ;; evil-leader
        ;;hydra
        ;;indent-guides     ; highlighted indent columns
        ;;ligatures         ; ligatures and symbols to make your code pretty again
@@ -49,7 +49,7 @@
        vc-gutter         ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        ;;window-select     ; visually switch windows
-       workspaces        ; tab emulation, persistence & separate workspaces
+       ;; workspaces        ; tab emulation, persistence & separate workspaces
        ;;zen               ; distraction-free coding or writing
 
        :editor
@@ -188,4 +188,5 @@
 
        :config
        ;;literate
-       (default +bindings +smartparens))
+       ;; (default +bindings +smartparens)
+       )
