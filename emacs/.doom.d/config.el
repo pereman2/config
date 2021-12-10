@@ -82,3 +82,7 @@
 (setq! evil-want-Y-yank-to-eol nil)
 ;; projectile cache
 (setq projectile-indexing-method 'alien)
+
+
+;; x86 manual
+(setq x86-lookup-pdf "~/manuals/x86manual.pdf")
