@@ -56,6 +56,7 @@
 ;; globals
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
+(setq-default smartparens-mode 0)
 
 ;; evil remaps
 (define-key evil-motion-state-map (kbd "C-h") 'evil-window-left)
@@ -86,3 +87,5 @@
 
 ;; x86 manual
 (setq x86-lookup-pdf "~/manuals/x86manual.pdf")
+
+(setq cmake-tab-width 4)
