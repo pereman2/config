@@ -89,3 +89,10 @@
 (setq x86-lookup-pdf "~/manuals/x86manual.pdf")
 
 (setq cmake-tab-width 4)
+
+(defun private-gdbmi-bnf-target-stream-output (c-string)
+  "Change behavior for GDB/MI target the target-stream-output so that it is displayed to the console."
+  (gdb-console c-string)
+  )
+
+(advice-add 'gdbmi-bnf-target-stream-output :override 'private-gdbmi-bnf-target-stream-output)
