@@ -35,15 +35,24 @@
  "1" 'eyebrowse-switch-to-window-config-1
  "2" 'eyebrowse-switch-to-window-config-2
  "3" 'eyebrowse-switch-to-window-config-3
- "r" 'ivy-imenu-anywhere
+ "r" 'lsp-find-references
+ "d" 'lsp-find-definition
  "c" 'compile
  "t" 'vterm-other-window ;; open terminal
  "k" 'kill-buffer)
 ; (setq! evil-want-Y-yank-to-eol nil)
 
-(modify-syntax-entry ?_ "w") ;; treat underscore as a part of a word (same as vim)
+;; treat underscore as a part of a word (same as vim)
+(modify-syntax-entry ?_ "w")
+
+(add-hook 'c-mode-common-hook
+					(lambda () (modify-syntax-entry ?_ "w")))
+
 (defadvice evil-inner-word (around underscore-as-word activate)
-  (let ((table (copy-syntax-table (syntax-table))))
-    (modify-syntax-entry ?_ "w" table)
-    (with-syntax-table table
-      ad-do-it)))
+	(let ((table (copy-syntax-table (syntax-table))))
+		(modify-syntax-entry ?_ "w" table)
+		(with-syntax-table table
+			ad-do-it)))
+
+(defalias 'forward-evil-word 'forward-evil-symbol)
+;; --------
