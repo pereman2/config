@@ -37,7 +37,7 @@
  "3" 'eyebrowse-switch-to-window-config-3
  "r" 'lsp-find-references
  "d" 'lsp-find-definition
- "c" 'compile
+ "c" 'projectile-compile-project
  "t" 'vterm-other-window ;; open terminal
  "k" 'kill-buffer)
 ; (setq! evil-want-Y-yank-to-eol nil)
