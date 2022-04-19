@@ -1,8 +1,10 @@
 (setq-default tab-width 2)
 (setq-default smartparens-mode 0)
+(setq backup-directory-alist `(("." . "~/.saves")))
 
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
-(display-line-numbers-mode 1)
+
+;; (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+;; (display-line-numbers-mode 1)
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)

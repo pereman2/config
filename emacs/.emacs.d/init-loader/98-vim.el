@@ -32,6 +32,7 @@
  "b" 'ivy-switch-buffer
  "h" 'ff-find-other-file
  "m" 'man
+ "q" 'org-capture
  "1" 'eyebrowse-switch-to-window-config-1
  "2" 'eyebrowse-switch-to-window-config-2
  "3" 'eyebrowse-switch-to-window-config-3
