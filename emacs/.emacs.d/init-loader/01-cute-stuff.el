@@ -20,7 +20,7 @@
 	)
 (defun font-terminus()
 	(interactive)
-	(add-to-list 'default-frame-alist '(font . "Terminus-14"))
+	(add-to-list 'default-frame-alist '(font . "Terminus-12"))
 	(add-to-list 'default-frame-alist '(line-spacing . 0.2))
 	)
 ; (font-jetbrains)
@@ -29,3 +29,6 @@
 (load-theme 'zenburn)
 ;; (load-file "~/.emacs.d/init-loader/solarized-selenized-black-pere-theme.el")
 ;; (enable-theme 'solarized-selenized-black-pere)
+(setq-default indent-tabs-mode nil
+              tab-stop-list    ()
+              tab-width        2)
