@@ -1,0 +1,8 @@
+require("config.set")
+require("config.packer")
+require("config.nvim-cmp")
+require("config.keymap")
+require("config.telescope")
+require("config.lualline")
+require("config.refactoring")
+--require("config.lspsaga")
