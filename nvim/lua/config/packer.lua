@@ -63,11 +63,14 @@ return require("packer").startup(function(use)
         use("hrsh7th/cmp-cmdline")
 
         use("ThePrimeagen/harpoon")
+        use("ThePrimeagen/git-worktree.nvim")
 
         use {
             'nvim-lualine/lualine.nvim',
             requires = { 'kyazdani42/nvim-web-devicons', opt = true }
         }
+        use('editorconfig/editorconfig-vim')
+        use("lukas-reineke/indent-blankline.nvim")
 
     end)
 

@@ -8,8 +8,7 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map("n", "<leader>f", ":Telescope find_files<CR>", nil)
-map("n", "<leader>b", ":Telescope buffers<CR>", nil)
+map("n", "<leader>f", ":Telescope find_files<CR>", nil) map("n", "<leader>b", ":Telescope buffers<CR>", nil)
 map("n", "<leader>`", ":Telescope project<CR>", nil)
 map("n", "<leader>t", ":Telescope<CR>", nil)
 
@@ -35,5 +34,13 @@ map("n", "<leader>r", ':lua vim.lsp.buf.references()<CR>', nil)
 map("n", "<leader>m", ':Neogit<CR>', nil)
 
 map("v", "<leader>\\", "<cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", nil)
+
+map("n", "<leader>h", "<cmd>ClangdSwitchSourceHeader<CR>", nil)
+
+map("n", "<leader>wl", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", nil)
+map("n", "<leader>wa", "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", nil)
+
+
+map("n", "<leader>wc", ":lua require('config.git_worktree').CreateBranch()<CR>", nil)
 
 vim.api.nvim_command('set clipboard=unnamedplus')

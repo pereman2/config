@@ -1,8 +1,3 @@
-local actions = require('telescope.actions')
-
-require'telescope'.load_extension('project')
-require('telescope').load_extension('fzf')
-
 require('telescope').setup{
     defaults = {
         vimgrep_arguments = {
@@ -19,12 +14,15 @@ require('telescope').setup{
     extensions = {
         project = {
             base_dirs = {
-                {'~/redhat', max_depth=4},
+                {'~/redhat', max_depth=2},
+                {'~/fun', max_depth=3},
             },
-            hidden_files = true, -- default: false
+            hidden_files = false, -- default: false
             theme = "dropdown"
         },
 
     }
 }
 
+require'telescope'.load_extension('project')
+require("telescope").load_extension("git_worktree")

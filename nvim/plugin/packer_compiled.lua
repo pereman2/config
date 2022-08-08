@@ -89,6 +89,16 @@ _G.packer_plugins = {
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["editorconfig-vim"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
+    url = "https://github.com/editorconfig/editorconfig-vim"
+  },
+  ["git-worktree.nvim"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/git-worktree.nvim",
+    url = "https://github.com/ThePrimeagen/git-worktree.nvim"
+  },
   gruvbox = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/gruvbox",
@@ -98,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lsp_signature.nvim"] = {
     load_after = {
@@ -133,7 +148,7 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/nvim-lsp-installer"
   },
   ["nvim-lspconfig"] = {
-    after = { "lsp_signature.nvim", "nvim-lsp-installer" },
+    after = { "nvim-lsp-installer", "lsp_signature.nvim" },
     config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.lsp\frequire\0" },
     loaded = false,
     needs_bufread = false,
