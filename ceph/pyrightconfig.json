@@ -1,0 +1,3 @@
+{
+  "extraPaths": ["./src/pybind/mgr", "./src/pybind/mgr/deps", "./src/pybind" ,"./src/python-common", "./src/pybind/mgr/deps"]
+}

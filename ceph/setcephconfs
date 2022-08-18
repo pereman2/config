@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cat << EOF > pyrightconfig.json
+{
+  "extraPaths": ["./src/pybind/mgr", "./src/pybind/mgr/deps", "./src/pybind" ,"./src/python-common", "./src/pybind/mgr/deps"]
+}
+EOF
