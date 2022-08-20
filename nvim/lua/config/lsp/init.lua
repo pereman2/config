@@ -1,10 +1,28 @@
 local M = {}
 
+local root_files_py = {
+  "pyrightconfig.json",
+  ".git",
+}
+
 local servers = {
   gopls = {},
   html = {},
   jsonls = {},
-  pyright = {},
+  pyright = {
+    root_dir = require("lspconfig.util").root_pattern(unpack(root_files_py)),
+
+    settings = {
+      python = {
+        analysis = {
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+          diagnosticMode = "workspace",
+        },
+      },
+    },
+
+  },
   rust_analyzer = {},
   sumneko_lua = {},
   tsserver = {},

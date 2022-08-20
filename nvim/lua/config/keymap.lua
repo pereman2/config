@@ -37,8 +37,8 @@ map("v", "<leader>\\", "<cmd>lua require('telescope').extensions.refactoring.ref
 
 map("n", "<leader>h", "<cmd>ClangdSwitchSourceHeader<CR>", nil)
 
-map("n", "<leader>wl", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", nil)
-map("n", "<leader>wa", "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", nil)
+map("n", "<leader>wl", "<cmd>lua require('config.git_worktree').ListBranches()<CR>", nil)
+map("n", "<leader>wa", "<cmd>lua require('config.git_worktree').CreateWorktree()<CR>", nil)
 
 
 map("n", "<leader>wc", ":lua require('config.git_worktree').CreateBranch()<CR>", nil)

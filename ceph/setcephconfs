@@ -1,7 +1,13 @@
 #!/bin/bash
 
-cat << EOF > pyrightconfig.json
+if [ -z "$1" ]
+then
+  file=pyrightconfig.json
+else
+  file=$1/pyrightconfig.json
+fi
+cat << EOF > $file
 {
-  "extraPaths": ["./src/pybind/mgr", "./src/pybind/mgr/deps", "./src/pybind" ,"./src/python-common", "./src/pybind/mgr/deps"]
+  "extraPaths": ["./src/pybind/mgr", "./src/pybind/mgr/deps", "./src/pybind" ,"./src/python-common", "./src/pybind/mgr/deps",  "./src/pybind/rados", "./src/pybind/rgw", "./src/pybind/rbd"]
 }
 EOF

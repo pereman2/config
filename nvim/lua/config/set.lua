@@ -43,3 +43,8 @@ vim.opt.smartcase = true
 vim.g.mapleader = ","
 
 vim.cmd('colorscheme tokyonight')
+vim.diagnostic.config({
+    virtual_text = false,
+    signs = false,
+    underline = false,
+})
