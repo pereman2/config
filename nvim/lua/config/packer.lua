@@ -71,6 +71,8 @@ return require("packer").startup(function(use)
         }
         use('editorconfig/editorconfig-vim')
         use("lukas-reineke/indent-blankline.nvim")
+        
+        use("sbdchd/neoformat")
 
     end)
 

@@ -48,3 +48,8 @@ vim.diagnostic.config({
     signs = false,
     underline = false,
 })
+
+vim.g.neoformat_c_clangformat = {
+             exe = "clang-format",
+             args = {'-style=~/clang-format-config'},
+             }
