@@ -30,6 +30,7 @@ map("n", "<C-j>", '<C-w>j', nil)
 map("n", "<C-k>", '<C-w>k', nil)
 
 map("n", "<leader>r", ':lua vim.lsp.buf.references()<CR>', nil)
+map("n", "<leader>a", ':lua vim.lsp.buf.code_action()<CR>', nil)
 
 map("n", "<leader>m", ':Neogit<CR>', nil)
 

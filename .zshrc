@@ -5,7 +5,6 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-export TERM=xterm-256color
 if [[ $TERM = dumb ]]; then
   unset zle_bracketed_paste
 fi
@@ -36,7 +35,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 #export PROMPT='pericles %F{red}:: %F{green}%~ %f'$'\n'
-
 
 export FZF_BASE=$HOME/.fzf
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
@@ -122,7 +120,7 @@ docker-ips() {   docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddr
 
 # kcli
 
-alias kcli='docker run --net host -it --rm --security-opt label=disable -v $HOME/.ssh:/root/.ssh -v $HOME/.kcli:/root/.kcli -v /var/lib/libvirt/images:/var/lib/libvirt/images -v /var/run/libvirt:/var/run/libvirt -v $PWD:/workdir quay.io/karmab/kcli'
+# alias kcli='docker run --net host -it --rm --security-opt label=disable -v $HOME/.ssh:/root/.ssh -v $HOME/.kcli:/root/.kcli -v /var/lib/libvirt/images:/var/lib/libvirt/images -v /var/run/libvirt:/var/run/libvirt -v $PWD:/workdir quay.io/karmab/kcli'
 
 #alias kcli='podman --runtime /usr/bin/crun run --net host -it --rm --security-opt label=disable -v $HOME/.ssh:/root/.ssh -v $HOME/.kcli:/root/.kcli -v /var/lib/libvirt/images:/var/lib/libvirt/images -v /var/run/libvirt:/var/run/libvirt -v $PWD:/workdir -v /var/tmp:/ignitiondir quay.io/karmab/kcli:2543a61'
 

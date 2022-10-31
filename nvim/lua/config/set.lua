@@ -42,14 +42,15 @@ vim.opt.smartcase = true
 
 vim.g.mapleader = ","
 
-vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme tokyonight-night')
 vim.diagnostic.config({
-    virtual_text = false,
-    signs = false,
-    underline = false,
+    virtual_text = true,
+    signs = true,
+    underline = true,
 })
 
 vim.g.neoformat_c_clangformat = {
              exe = "clang-format",
              args = {'-style=~/clang-format-config'},
              }
+

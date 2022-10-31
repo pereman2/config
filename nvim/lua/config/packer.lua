@@ -70,7 +70,7 @@ return require("packer").startup(function(use)
             requires = { 'kyazdani42/nvim-web-devicons', opt = true }
         }
         use('editorconfig/editorconfig-vim')
-        use("lukas-reineke/indent-blankline.nvim")
+        -- use("lukas-reineke/indent-blankline.nvim")
         
         use("sbdchd/neoformat")
 
