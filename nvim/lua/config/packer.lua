@@ -15,7 +15,6 @@ return require("packer").startup(function(use)
             },
         }
         use { "nvim-telescope/telescope-project.nvim" }
-
         use {
             "neovim/nvim-lspconfig",
             opt = true,
@@ -52,11 +51,27 @@ return require("packer").startup(function(use)
             }
         }
         use("TimUntersberger/neogit")
+        use("tpope/vim-fugitive")
 
         use("gruvbox-community/gruvbox")
         use("folke/tokyonight.nvim")
+        use 'navarasu/onedark.nvim' -- Theme inspired by Atom
 
-        use("hrsh7th/nvim-cmp")
+        use({ 'rose-pine/neovim', as = 'rose-pine', })
+
+        use {
+          'lewis6991/gitsigns.nvim',
+          -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+        }
+
+        use {
+          "hrsh7th/nvim-cmp",
+          requires = {
+            'hrsh7th/cmp-nvim-lsp',
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip'
+          },
+        }
         use("hrsh7th/cmp-nvim-lsp")
         use("hrsh7th/cmp-buffer")
         use("hrsh7th/cmp-path")

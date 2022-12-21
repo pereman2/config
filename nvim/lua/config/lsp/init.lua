@@ -34,7 +34,7 @@ local servers = {
           "--pch-storage=memory",
           "--clang-tidy",
           "--all-scopes-completion",
-          "--log=verbose",
+          "--log=error", -- error, info, verbose
           "--pretty",
           "--header-insertion=never",
           "-j=4"
@@ -72,5 +72,5 @@ local default_opts = {
 function M.setup()
   require("config.lsp.installer").setup(servers, default_opts)
 end
-vim.lsp.set_log_level("debug")
+-- vim.lsp.set_log_level("debug")
 return M

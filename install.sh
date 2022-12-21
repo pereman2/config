@@ -18,4 +18,9 @@ function move_dotfiles() {
     cp .tmux.conf ~/.tmux.conf
 }
 
+function install_alacritty_themes() {
+  git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorscheme
+}
+
 install_fuzzy
+install_alacritty_themes

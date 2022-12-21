@@ -28,7 +28,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 export EDITOR='nvim'
-alias vim=~/Downloads/nvim/bin/nvim
+# alias vim=~/Downloads/nvim/bin/nvim
+alias vim=nvim
 if [ "$TMUX" = "" ]; then tmux; fi
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -39,6 +40,8 @@ fi
 export FZF_BASE=$HOME/.fzf
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH="/usr/local/opt/bison/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/Cellar/grpc-tools/0.2.6/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/binaries:$PATH"
 export PATH="$HOME/.emacs.d/bin/:$PATH"

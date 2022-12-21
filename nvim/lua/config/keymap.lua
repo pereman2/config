@@ -34,6 +34,11 @@ map("n", "<leader>a", ':lua vim.lsp.buf.code_action()<CR>', nil)
 
 map("n", "<leader>m", ':Neogit<CR>', nil)
 
+map("n", "<leader>gl", ':vertical Git log -n 1000<CR>', nil)
+map("n", "<leader>gdd", ':vertical Git diff<CR>', nil)
+map("n", "<leader>gb", ':vertical Git blame<CR>', nil)
+map("n", "<leader>gs", ':vertical Git<CR>', nil)
+
 map("v", "<leader>\\", "<cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", nil)
 
 map("n", "<leader>h", "<cmd>ClangdSwitchSourceHeader<CR>", nil)
