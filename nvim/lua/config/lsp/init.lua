@@ -25,19 +25,17 @@ local servers = {
   },
   rust_analyzer = {},
   sumneko_lua = {},
-  tsserver = {},
+  tsserver = { },
   vimls = {},
   clangd = {
       cmd = {
           "clangd",
-          "--background-index",
-          "--pch-storage=memory",
+          "--pch-storage=disk",
           "--clang-tidy",
           "--all-scopes-completion",
           "--log=error", -- error, info, verbose
-          "--pretty",
           "--header-insertion=never",
-          "-j=4"
+          "-j=1"
       },
   },
   Lua = {

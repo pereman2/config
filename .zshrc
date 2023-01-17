@@ -40,6 +40,8 @@ fi
 export FZF_BASE=$HOME/.fzf
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH="/usr/local/opt/bison/bin:$PATH"
+export PATH="$HOME/binaries/bpftrace/tools:$PATH"
+export PATH="$HOME/binaries/FlameGraph:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/Cellar/grpc-tools/0.2.6/bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -132,10 +134,6 @@ docker-ips() {   docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddr
 # alias kclishell='podman --runtime /usr/bin/crun run --net host -it --rm --security-opt label=disable -v $HOME/.ssh:/root/.ssh -v $HOME/.kcli:/root/.kcli -v /var/lib/libvirt/images:/var/lib/libvirt/images -v /var/run/libvirt:/var/run/libvirt -v $PWD:/workdir -v /var/tmp:/ignitiondir --entrypoint=/bin/sh quay.io/karmab/kcli:2543a61'
 
 # alias kweb='podman --runtime /usr/bin/crun run -p 9000:9000 --net host -it --rm --security-opt label=disable -v $HOME/.ssh:/root/.ssh -v $HOME/.kcli:/root/.kcli -v /var/lib/libvirt/images:/var/lib/libvirt/images -v /var/run/libvirt:/var/run/libvirt -v $PWD:/workdir -v /var/tmp:/ignitiondir --entrypoint=/usr/bin/kweb quay.io/karmab/kcli:2543a61'
-
-alias flame="~/binaries/FlameGraph/flamegraph.pl"
-alias stackcollapse="~/binaries/FlameGraph/stackcollapse.pl"
-
 
 # zsh coloring man pages workaround
 # export LESS_TERMCAP_mb=$'\E[01;31m'
