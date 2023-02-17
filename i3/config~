@@ -80,13 +80,13 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+f split h
+bindsym $mod+g split h
 
 # split in vertical orientation
-bindsym $mod+Shift+v split v
+bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+z fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -179,15 +179,14 @@ set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 set $blue-color          #5DA8F4
-set $border-color          #52B788
 
-client.focused          $border-color           $border-color          $text-color          #00ff00
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $blue-color    $blue-color   $text-color          #00ff00
 # Rofi menu launcher
 set $rofi_theme "~/.config/i3/rofithemes/flat-blue.rasi"
-bindsym $mod+space exec rofi -show run -config $rofi_theme
+bindsym $mod+d exec rofi -show run -config $rofi_theme
 bindsym $mod+Shift+d exec rofi -show window -config $rofi_theme
 # Fonts
 font pango:System San Francisco Display 8
@@ -216,26 +215,25 @@ bar {
 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
 	        urgent_workspace   $blue-color   $blue-color   $text-color
         }
-        status_command i3status
+        # status_command i3status
 	# position top
 	# font pango:DejaVu Sans Mono 10
-	separator_symbol “⁞”
+	# separator_symbol “⁞”
 # Bar program
 }
 
-
 new_window 1pixel
-default_border pixel 1
+default_border pixel 0
 default_floating_border normal
 gaps outer 5
 gaps inner 5
 for_window [class="^.*"] border pixel 2
 
-bindsym $mod+g		gaps outer current plus 5
-bindsym $mod+Shift+g	gaps outer current minus 5
+bindsym $mod+z		gaps outer current plus 5
+bindsym $mod+Shift+z	gaps outer current minus 5
 
 set $laptop eDP-1
-set $monitor DP-3
+set $monitor DP-2
 workspace 0 output $laptop
 workspace 1 output $monitor
 workspace 2 output $monitor
@@ -243,17 +241,8 @@ workspace 3 output $monitor
 workspace 4 output $monitor
 exec --no-startup-id nm-applet
 
-# start gnome shell
-exec /usr/libexec/gnome-settings-daemon
-
-
-# # tray_output $monitor
-# exec xrandr --output $monitor --primary --left-of $laptop
-
-# exec cvt 3440 1440 60
-# exec xrandr --newmode "3440x1440_60.00"  419.50  3440 3696 4064 4688  1440 1443 1453 1493 -hsync +vsync
-# exec xrandr --addmode DP-3  "3440x1440_60.00"
-# exec xrandr --output DP-3 --mode "3440x1440_60.00" --primary --left-of eDP-1 --rate 60
+# tray_output $monitor
+exec xrandr --output $monitor --primary --left-of $laptop
 exec nitrogen --restore
-exec /usr/bin/dropbox start
+#dropbox start
 exec --no-startup-id /usr/bin/setxkbmap -option "ctrl:nocaps"
