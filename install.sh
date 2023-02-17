@@ -22,5 +22,16 @@ function install_alacritty_themes() {
   git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorscheme
 }
 
+function ohmyzsh() {
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
+
+
+sudo dnf install nvim i3 zsh
+ohmyzsh
 install_fuzzy
 install_alacritty_themes
+
+# packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
