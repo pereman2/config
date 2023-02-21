@@ -9,33 +9,24 @@ if [[ $TERM = dumb ]]; then
   unset zle_bracketed_paste
 fi
 export ZSH="/home/peristocles/.oh-my-zsh"
-source /home/peristocles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="cypher"
-plugins=(
-    git
-    # zsh-z
-    fzf-tab
-    dnf
-    zsh-autosuggestions
-    tmux
-    fzf
-    colored-man-pages
-    zsh-syntax-highlighting
-    # vi-mode
-)
+source ~/.config/antigen.zsh
+
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle zsh-users/zsh-autosuggestions
+antigen theme cypher
+antigen bundle agkozak/zsh-z
+antigen bundle Aloxaf/fzf-tab
+antigen apply
 
 source $ZSH/oh-my-zsh.sh
 source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 export EDITOR='nvim'
-# alias vim=~/Downloads/nvim/bin/nvim
 alias vim=nvim
 if [ "$TMUX" = "" ]; then tmux; fi
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-
-#export PROMPT='pericles %F{red}:: %F{green}%~ %f'$'\n'
 
 export FZF_BASE=$HOME/.fzf
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
@@ -152,6 +143,5 @@ docker-ips() {   docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddr
 
 bindkey '^I' fzf-tab-complete
 zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
-source ~/binaries/z/z.sh
 
 alias luamake=/home/peristocles/binaries/lua-language-server/3rd/luamake/luamake

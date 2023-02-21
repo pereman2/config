@@ -27,11 +27,19 @@ function ohmyzsh() {
 }
 
 
-sudo dnf install nvim i3 zsh
+sudo dnf install -y g++ nvim npm \
+  zsh zsh-syntax-highlighting fzf \ # shell things, oh-my-zsh below
+  i3 rofi # i3 deps
 ohmyzsh
 install_fuzzy
 install_alacritty_themes
 
+curl -L git.io/antigen > antigen.zsh
+
 # packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+
+# tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
