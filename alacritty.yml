@@ -10,25 +10,24 @@
 # https://font.gohu.org/
 font:
         normal:
-                family: NotoSansMono
+                family: droidsansmono
                 style: Regular
         bold:
-                family: NotoSansMono
+                family: droidsansmono
                 style: Bold
         italic:
-                family: NotoSansMono
+                family: droidsansmono
                 style: Italic
         bold_italic:
-                family: NotoSansMono
+                family: droidsansmono
                 style: Bold Italic
-        size: 12
-shell:
-  program: /bin/zsh
+        size: 14
+window.opacity: 0.5
 env:
   TERM: xterm-256color
 
 
 # follow steps from https://github.com/eendroroy/alacritty-theme
 import:
-  - ~/.alacritty-colorscheme/themes/material_theme.yaml
+  - ~/.alacritty-colorscheme/themes/one_dark.yaml
 # Colors (One Dark)

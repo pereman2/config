@@ -42,7 +42,10 @@ vim.opt.smartcase = true
 
 vim.g.mapleader = ","
 
-vim.cmd('colorscheme rose-pine')
+vim.cmd('colorscheme material')
+
+require('material.functions').change_style("darker")
+
 vim.diagnostic.config({
     virtual_text = true,
     signs = true,

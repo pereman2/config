@@ -47,6 +47,7 @@ return require("packer").startup(function(use)
   use("gruvbox-community/gruvbox")
   use("folke/tokyonight.nvim")
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+  use 'marko-cerovac/material.nvim'
 
   use({ 'rose-pine/neovim', as = 'rose-pine', })
 
