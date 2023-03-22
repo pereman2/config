@@ -9,11 +9,15 @@ if not status_ok_1 then
 end
 
 local servers = {
+    "rust_analyzer",
     "clangd",
     "tsserver",
     "cssmodules_ls",
     "emmet_ls",
     "html",
+    "pyright",
+    "bashls",
+    "gopls",
 }
 
 -- Here we declare which settings to pass to the mason, and also ensure servers are installed. If not, they will be installed automatically.
