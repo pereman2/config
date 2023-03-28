@@ -31,7 +31,10 @@ return require("packer").startup(function(use)
       }
     end
   }
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate' -- useful to update in case of new version
+  }
   use 'nvim-treesitter/nvim-treesitter-context'
 
   use {
@@ -72,6 +75,9 @@ return require("packer").startup(function(use)
   use("ThePrimeagen/harpoon")
   use("ThePrimeagen/git-worktree.nvim")
 
+
+  use 'simrat39/symbols-outline.nvim'
+
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -90,6 +96,8 @@ return require("packer").startup(function(use)
       "MunifTanjim/nui.nvim",
     }
   }
+
+  use 'mizlan/iswap.nvim' -- swap args
 
 end)
 

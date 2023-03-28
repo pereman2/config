@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["iswap.nvim"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/iswap.nvim",
+    url = "https://github.com/mizlan/iswap.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -229,6 +234,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
+  },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
   },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
