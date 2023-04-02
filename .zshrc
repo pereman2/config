@@ -8,19 +8,22 @@ fi
 if [[ $TERM = dumb ]]; then
   unset zle_bracketed_paste
 fi
+
 export ZSH="/home/peristocles/.oh-my-zsh"
 source ~/.config/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle zsh-users/zsh-autosuggestions
-antigen theme cypher
+antigen theme edvardm
 antigen bundle agkozak/zsh-z
 antigen bundle Aloxaf/fzf-tab
 antigen apply
 
+export ZSH_THEME=edvardm
+
 source $ZSH/oh-my-zsh.sh
-source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 export EDITOR='nvim'
 alias vim=nvim
 if [ "$TMUX" = "" ]; then tmux; fi
@@ -145,3 +148,4 @@ bindkey '^I' fzf-tab-complete
 zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
 
 alias luamake=/home/peristocles/binaries/lua-language-server/3rd/luamake/luamake
+

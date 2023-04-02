@@ -10,18 +10,18 @@
 # https://font.gohu.org/
 font:
         normal:
-                family: NotoSansMono
+                family: Terminus
                 style: Regular
         bold:
-                family: NotoSansMono
+                family: Terminus
                 style: Bold
         italic:
-                family: NotoSansMono
+                family: Terminus
                 style: Italic
         bold_italic:
-                family: NotoSansMono
+                family: Terminus
                 style: Bold Italic
-        size: 12
+        size: 14
 shell:
   program: /bin/zsh
 env:
