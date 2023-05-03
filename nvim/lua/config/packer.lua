@@ -22,6 +22,10 @@ return require("packer").startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   use {
+    "ray-x/lsp_signature.nvim",
+  }
+
+  use {
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup {
@@ -47,12 +51,21 @@ return require("packer").startup(function(use)
   use("TimUntersberger/neogit")
   use("tpope/vim-fugitive")
 
+  -- themes
   use("gruvbox-community/gruvbox")
   use("folke/tokyonight.nvim")
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
+  use 'NLKNguyen/papercolor-theme'
+  use 'frenzyexists/aquarium-vim'
   use 'marko-cerovac/material.nvim'
+  use 'ishan9299/nvim-solarized-lua'
 
   use({ 'rose-pine/neovim', as = 'rose-pine', })
+
+  use 'Shatur/neovim-ayu'
+
+  use { "catppuccin/nvim", as = "catppuccin" }
+  -- end themes
 
   use {
     'lewis6991/gitsigns.nvim',
@@ -67,6 +80,7 @@ return require("packer").startup(function(use)
       'saadparwaiz1/cmp_luasnip'
     },
   }
+ 
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-path")
@@ -98,6 +112,16 @@ return require("packer").startup(function(use)
   }
 
   use 'mizlan/iswap.nvim' -- swap args
+
+  use 'xiyaowong/transparent.nvim'
+
+  -- DAP stuff
+  use 'mfussenegger/nvim-dap'
+  use 'theHamsta/nvim-dap-virtual-text'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  -- END DAP
+
+
 
 end)
 

@@ -18,6 +18,7 @@ map("n", "<leader>fa", ":Telescope find_files<CR>", nil)
 map("n", "<leader>b", ":Telescope buffers<CR>", nil)
 map("n", "<leader>`", ":Telescope project<CR>", nil)
 map("n", "<leader>t", ":Telescope<CR>", nil)
+map("n", "<leader>c", ":Telescope commands<CR>", nil)
 
 -- harpoon
 
@@ -36,7 +37,7 @@ map("n", "<C-h>", '<C-w>h', nil)
 map("n", "<C-j>", '<C-w>j', nil)
 map("n", "<C-k>", '<C-w>k', nil)
 
-map("n", "<leader>r", ':lua vim.lsp.buf.references()<CR>', nil)
+map("n", "<leader>r", ':Telescope lsp_references<CR>', nil)
 map("n", "<leader>a", ':lua vim.lsp.buf.code_action()<CR>', nil)
 
 map("n", "<leader>m", ':Man<CR><C-w>j', nil)
@@ -61,4 +62,23 @@ map("n", "<leader>wc", ":lua require('config.git_worktree').CreateBranch()<CR>",
 map("n", "[s", ":ISwapWithLeft<CR>", nil)
 map("n", "]s", ":ISwapWithRight<CR>", nil)
 
+
+-- dap stuff
+map("n", "<leader>dc", ':lua require("dap").continue()<CR>', nil)
+map("n", "<leader>dso", ':lua require("dap").step_over()<CR>', nil)
+map("n", "<leader>dsi", ':lua require("dap").step_into()<CR>', nil)
+map("n", "<leader>dsO", ':lua require("dap").step_out()<CR>', nil)
+map("n", "<leader>db", ':lua require("dap").toggle_breakpoint()<CR>', nil)
+map("n", "<leader>dB", ':lua require("dap").set_breakpoint(vim.fn.input(\'Breakpoint condition: \'))<CR>', nil)
+map("n", "<leader>dr", ':lua require("dap").repl.open()<CR>', nil)
+map("n", "<leader>dl", ':lua require("dap").run_last()<CR>', nil)
+map("n", "<leader>dt", ':DapTerminate<CR>', nil)
+-- end dap
+
 vim.api.nvim_command('set clipboard=unnamedplus')
+
+
+vim.api.nvim_create_user_command('CephBuild', "let &makeprg=\"cd build; ninja -j4\" <q-args>", { nargs = 1 })
+
+
+

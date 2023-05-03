@@ -43,9 +43,7 @@ vim.opt.smartcase = true
 
 vim.g.mapleader = ","
 
-vim.cmd('colorscheme material')
-
-require('material.functions').change_style("darker")
+vim.cmd('colorscheme onedark')
 
 vim.diagnostic.config({
     virtual_text = true,
@@ -57,4 +55,5 @@ vim.g.neoformat_c_clangformat = {
              exe = "clang-format",
              args = {'-style=~/clang-format-config'},
              }
+
 
