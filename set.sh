@@ -1,5 +1,6 @@
 #!/bin/bash
 
+ln -s $(pwd)/.config/helix ~/.config/helix
 ln -s $(pwd)/.tmux.conf ~/
 ln -s $(pwd)/antigen.zsh ~/.config/antigen.zsh
 ln -s $(pwd)/.zshrc ~/
