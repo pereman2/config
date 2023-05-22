@@ -8,13 +8,13 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map("n", "<leader>ff", ":Telescope git_files<CR>", nil) 
-map("n", "<leader>fa", ":Telescope find_files<CR>", nil) 
+map("n", "<leader>ff", ":Telescope git_files<CR>", nil)
+map("n", "<leader>fa", ":Telescope find_files<CR>", nil)
 map("n", "<leader>fsd", ":Telescope lsp_document_symbols<CR>", nil) 
-map("n", "<leader>fsa", ":Telescope lsp_dynamic_workspace_symbols<CR>", nil) 
-map("n", "<leader>fso", ":SymbolsOutline<CR>", nil) 
+map("n", "<leader>fsa", ":Telescope lsp_dynamic_workspace_symbols<CR>", nil)
+map("n", "<leader>fso", ":SymbolsOutline<CR>", nil)
 
-map("n", "<leader>fa", ":Telescope find_files<CR>", nil) 
+map("n", "<leader>fa", ":Telescope find_files<CR>", nil)
 map("n", "<leader>b", ":Telescope buffers<CR>", nil)
 map("n", "<leader>`", ":Telescope project<CR>", nil)
 map("n", "<leader>t", ":Telescope<CR>", nil)
@@ -78,7 +78,6 @@ map("n", "<leader>dt", ':DapTerminate<CR>', nil)
 vim.api.nvim_command('set clipboard=unnamedplus')
 
 
-vim.api.nvim_create_user_command('CephBuild', "let &makeprg=\"cd build; ninja -j4\" <q-args>", { nargs = 1 })
-
-
-
+custom = require("config.custom")
+vim.api.nvim_create_user_command('CompileOptions', custom.MakeOptions, { nargs = 0 })
+vim.api.nvim_create_user_command('Compile', custom.Make, { nargs = 0 })

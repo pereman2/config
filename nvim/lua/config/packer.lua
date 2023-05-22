@@ -51,7 +51,7 @@ return require("packer").startup(function(use)
   use("TimUntersberger/neogit")
   use("tpope/vim-fugitive")
 
-  -- themes
+  -- color themes
   use("gruvbox-community/gruvbox")
   use("folke/tokyonight.nvim")
   use 'navarasu/onedark.nvim' -- Theme inspired by Atom
@@ -59,6 +59,7 @@ return require("packer").startup(function(use)
   use 'frenzyexists/aquarium-vim'
   use 'marko-cerovac/material.nvim'
   use 'ishan9299/nvim-solarized-lua'
+  use 'sainnhe/gruvbox-material'
 
   use({ 'rose-pine/neovim', as = 'rose-pine', })
 
@@ -94,7 +95,6 @@ return require("packer").startup(function(use)
 
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use('editorconfig/editorconfig-vim')
   -- use("lukas-reineke/indent-blankline.nvim")
@@ -106,7 +106,6 @@ return require("packer").startup(function(use)
     branch = "v2.x",
     requires = { 
       "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
     }
   }
@@ -121,6 +120,13 @@ return require("packer").startup(function(use)
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
   -- END DAP
 
+  use "folke/neodev.nvim"
+  use "hauleth/asyncdo.vim"
+
+  -- indent tab line
+  use "lukas-reineke/indent-blankline.nvim"
+
+  use 'nvim-tree/nvim-web-devicons'
 
 
 end)

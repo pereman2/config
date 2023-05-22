@@ -43,7 +43,7 @@ vim.opt.smartcase = true
 
 vim.g.mapleader = ","
 
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme gruvbox-material')
 
 vim.diagnostic.config({
     virtual_text = true,

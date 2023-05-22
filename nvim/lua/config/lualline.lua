@@ -1,40 +1,69 @@
-require('lualine').setup {
+local colors = {
+  fg = "#76787d",
+  bg = "#252829",
+}
+
+local function location()
+  local line = vim.fn.line "."
+  local col = vim.fn.virtcol "."
+  return string.format("Ln %d,Col %d", line, col)
+end
+
+local filetype = function()
+  return vim.bo.filetype
+end
+
+local diagnostics = {
+  "diagnostics",
+
+  sources = { "nvim_diagnostic" },
+  sections = { "error", "warn" },
+
+  diagnostics_color = {
+    error = "Statusline",
+    warn = "Statusline",
+    info = "Statusline",
+    hint = "Statusline",
+  },
+  symbols = {
+    error = "" .. " ",
+    warn = "" .. " ",
+    info = "I",
+    hint = "H",
+  },
+  colored = false,          -- Displays diagnostics status in color if set to true.
+  update_in_insert = false, -- Update diagnostics in insert mode.
+  always_visible = true,    -- Show diagnostics even if there are none.
+}
+
+require("lualine").setup({
   options = {
-    icons_enabled = true,
-    theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {
-      statusline = {},
-      winbar = {},
-    },
-    ignore_focus = {},
-    always_divide_middle = true,
-    globalstatus = false,
-    refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
+    theme = {
+      normal = {
+        a = { fg = colors.fg, bg = colors.bg },
+        b = { fg = colors.fg, bg = colors.bg },
+        c = { fg = colors.fg, bg = colors.bg },
+      },
+      insert = { a = { fg = colors.fg, bg = colors.bg }, b = { fg = colors.fg, bg = colors.bg } },
+      visual = { a = { fg = colors.fg, bg = colors.bg }, b = { fg = colors.fg, bg = colors.bg } },
+      command = { a = { fg = colors.fg, bg = colors.bg }, b = { fg = colors.fg, bg = colors.bg } },
+      replace = { a = { fg = colors.fg, bg = colors.bg }, b = { fg = colors.fg, bg = colors.bg } },
+
+      inactive = {
+        a = { bg = colors.fg, fg = colors.bg },
+        b = { bg = colors.fg, fg = colors.bg },
+        c = { bg = colors.fg, fg = colors.bg },
+      },
     }
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_a = { "branch" },
+    lualine_b = { "filename" },
+    lualine_c = {
+      diagnostics,
+    },
+    lualine_x = { location },
+    lualine_y = { filetype },
+    lualine_z = { "progress" },
   },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  winbar = {},
-  inactive_winbar = {},
-  extensions = {}
-}
+})

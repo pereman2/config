@@ -9,17 +9,19 @@ if not status_ok_1 then
 end
 
 local servers = {
-    "rust_analyzer",
-    "clangd",
-    "tsserver",
-    "cssmodules_ls",
-    "emmet_ls",
-    "html",
-    "pyright",
-    "bashls",
-    "gopls",
-    "lua_ls",
-    "cmake",
+    rust_analyzer = {},
+    clangd = {
+      cmd = {"clangd", "--pch-storage=disk"}
+    },
+    tsserver = {},
+    cssmodules_ls = {},
+    emmet_ls = {},
+    html = {},
+    pyright = {},
+    bashls = {},
+    gopls = {},
+    -- lua_ls = {}, configured with neodev
+    cmake = {},
 }
 
 -- Here we declare which settings to pass to the mason, and also ensure servers are installed. If not, they will be installed automatically.
@@ -48,7 +50,6 @@ if not lspconfig_status_ok then
     return
 end
 
-local opts = {}
 local function on_attach(client, bufnr)
   -- Enable completion triggered by <C-X><C-O>
   -- See `:help omnifunc` and `:help ins-completion` for more information.
@@ -62,13 +63,25 @@ local function on_attach(client, bufnr)
   require("config.lsp.keymaps").setup(client, bufnr)
 end
 
--- loop through the servers
-for _, server in pairs(servers) do
-    opts = {
-        -- getting "on_attach" and capabilities from handlers
-        on_attach = on_attach
-        -- capabilities = require("user.lsp.handlers").capabilities,
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
+-- example to setup lua_ls and enable call snippets
+lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      completion = {
+        callSnippet = "Replace"
+      }
     }
+  }
+})
+
+-- loop through the servers
+for server, opts in pairs(servers) do
+    opts["on_attach"] = on_attach
 
     -- get the server name
     server = vim.split(server, "@")[1]
@@ -76,3 +89,4 @@ for _, server in pairs(servers) do
     -- pass them to lspconfig
     lspconfig[server].setup(opts)
 end
+
