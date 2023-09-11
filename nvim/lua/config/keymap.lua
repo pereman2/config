@@ -12,7 +12,7 @@ map("n", "<leader>ff", ":Telescope git_files<CR>", nil)
 map("n", "<leader>fa", ":Telescope find_files<CR>", nil)
 map("n", "<leader>fsd", ":Telescope lsp_document_symbols<CR>", nil) 
 map("n", "<leader>fsa", ":Telescope lsp_dynamic_workspace_symbols<CR>", nil)
-map("n", "<leader>fso", ":SymbolsOutline<CR>", nil)
+map("n", "<leader>fso", ":SymbolsOutlineOpen<CR>", nil)
 
 map("n", "<leader>fa", ":Telescope find_files<CR>", nil)
 map("n", "<leader>b", ":Telescope buffers<CR>", nil)
@@ -43,7 +43,7 @@ map("n", "<leader>a", ':lua vim.lsp.buf.code_action()<CR>', nil)
 map("n", "<leader>m", ':Man<CR><C-w>j', nil)
 
 map("n", "<leader>gl", ':vertical Git log -n 1000<CR>', nil)
-map("n", "<leader>gdd", ':vertical Git diff<CR>', nil)
+map("n", "<leader>gd", ':vertical Git diff<CR>', nil)
 map("n", "<leader>gb", ':vertical Git blame<CR>', nil)
 map("n", "<leader>gs", ':vertical Git<CR>', nil)
 
@@ -78,6 +78,6 @@ map("n", "<leader>dt", ':DapTerminate<CR>', nil)
 vim.api.nvim_command('set clipboard=unnamedplus')
 
 
-custom = require("config.custom")
-vim.api.nvim_create_user_command('CompileOptions', custom.MakeOptions, { nargs = 0 })
-vim.api.nvim_create_user_command('Compile', custom.Make, { nargs = 0 })
+autorunner = require("autorunner")
+vim.api.nvim_create_user_command('Compile', autorunner.run, { nargs = 0 })
+vim.api.nvim_create_user_command('CompileEdit', autorunner.edit_file, { nargs = 0 })

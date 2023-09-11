@@ -8,20 +8,22 @@ fi
 if [[ $TERM = dumb ]]; then
   unset zle_bracketed_paste
 fi
-
 export ZSH="/home/peristocles/.oh-my-zsh"
 source ~/.config/antigen.zsh
 
 antigen use oh-my-zsh
 antigen bundle git
 antigen bundle zsh-users/zsh-autosuggestions
-antigen theme edvardm
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen theme clean
 antigen bundle agkozak/zsh-z
 antigen bundle Aloxaf/fzf-tab
 antigen apply
 
-export ZSH_THEME=edvardm
+export ZSH_THEME=clean
 
+eval "$(register-python-argcomplete kcli)"
 source $ZSH/oh-my-zsh.sh
 # source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 export EDITOR='nvim'
@@ -36,6 +38,7 @@ export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH="/usr/local/opt/bison/bin:$PATH"
 export PATH="$HOME/binaries/bpftrace/tools:$PATH"
 export PATH="$HOME/binaries/FlameGraph:$PATH"
+export PATH="$HOME/binaries/gf:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/Cellar/grpc-tools/0.2.6/bin:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -64,12 +67,13 @@ alias worktime='~/Dropbox/notes/scripts/time.sh'
 alias compr='g++ test.cpp && ./a.out'
 alias rundoom='doom run --daemon && emacsclient -c'
 alias branches='python3 ~/binaries/my-setup/bin/show_branches.py'
+alias lg='lazygit'
 
 # git aliases
 alias gl='git log --color --graph'
 alias gsn='git status --untracked-file=no'
 
-alias grep='grep --color -nHi --null -e'
+# alias grep='grep --color -nHi --null -e'
 alias killdiscord="kill -9 \$(ps aux | grep discord | awk '{ print \$3 }')"
 alias setmonitor="xrandr --output DP-3 --left-of eDP-1 --primary"
 
@@ -120,6 +124,8 @@ docker-ips() {   docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddr
 # kcli
 
 # alias kcli='docker run --net host -it --rm --security-opt label=disable -v $HOME/.ssh:/root/.ssh -v $HOME/.kcli:/root/.kcli -v /var/lib/libvirt/images:/var/lib/libvirt/images -v /var/run/libvirt:/var/run/libvirt -v $PWD:/workdir quay.io/karmab/kcli'
+#
+# alias kcli='podman run --net host -it --rm --security-opt label=disable -v $HOME/.ssh:/root/.ssh -v $HOME/.kcli:/root/.kcli -v /var/lib/libvirt/images:/var/lib/libvirt/images -v /var/run/libvirt:/var/run/libvirt -v $PWD:/workdir quay.io/karmab/kcli'
 
 #alias kcli='podman --runtime /usr/bin/crun run --net host -it --rm --security-opt label=disable -v $HOME/.ssh:/root/.ssh -v $HOME/.kcli:/root/.kcli -v /var/lib/libvirt/images:/var/lib/libvirt/images -v /var/run/libvirt:/var/run/libvirt -v $PWD:/workdir -v /var/tmp:/ignitiondir quay.io/karmab/kcli:2543a61'
 
@@ -149,3 +155,9 @@ zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
 
 alias luamake=/home/peristocles/binaries/lua-language-server/3rd/luamake/luamake
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
