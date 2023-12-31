@@ -44,7 +44,7 @@ vim.opt.smartcase = true
 vim.g.mapleader = ","
 
 vim.cmd('colorscheme dump-quiet')
-vim.cmd('set signcolumn=no')
+vim.cmd('set signcolumn=yes')
 
 vim.diagnostic.config({
     virtual_text = true,

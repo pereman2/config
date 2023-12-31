@@ -11,7 +11,7 @@ end
 local servers = {
     rust_analyzer = {},
     clangd = {
-      cmd = {"clangd", "--pch-storage=disk"}
+      cmd = {"clangd"}
     },
     tsserver = {},
     cssmodules_ls = {},

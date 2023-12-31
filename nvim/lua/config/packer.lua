@@ -82,7 +82,7 @@ return require("packer").startup(function(use)
           untracked    = { text = '┆' },
         },
         signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-        numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+        numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
         linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
         word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
         watch_gitdir = {
@@ -156,7 +156,7 @@ return require("packer").startup(function(use)
 
   use 'mizlan/iswap.nvim' -- swap args
 
-  use 'xiyaowong/transparent.nvim'
+  -- use 'xiyaowong/transparent.nvim'
 
   -- DAP stuff
   use 'mfussenegger/nvim-dap'
@@ -203,7 +203,28 @@ return require("packer").startup(function(use)
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end}
+
+  use {
+    'ldelossa/gh.nvim',
+    requires = { { 'ldelossa/litee.nvim' } },
+    config = function()
+      require('litee.lib').setup()
+      require('litee.gh').setup({})
+    end
+
+  }
+
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/vim-vsnip-integ'
   ---
+
+  use {
+    'stevearc/resession.nvim',
+  }
+
+  use {
+    'stevearc/overseer.nvim',
+  }
 
 end)
 

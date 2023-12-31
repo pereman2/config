@@ -79,6 +79,21 @@ _G.packer_plugins = {
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["aquarium-vim"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/aquarium-vim",
+    url = "https://github.com/frenzyexists/aquarium-vim"
+  },
+  ["asyncdo.vim"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/asyncdo.vim",
+    url = "https://github.com/hauleth/asyncdo.vim"
+  },
+  catppuccin = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -104,10 +119,27 @@ _G.packer_plugins = {
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["cscope.nvim"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/cscope.nvim",
+    url = "https://github.com/mfulz/cscope.nvim"
+  },
+  ["distant.nvim"] = {
+    config = { "\27LJ\2\nt\0\0\6\0\a\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\5\0006\3\0\0'\5\3\0B\3\2\0029\3\4\3B\3\1\2=\3\6\2B\0\2\1K\0\1\0\6*\1\0\0\17chip_default\21distant.settings\nsetup\fdistant\frequire\0" },
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/distant.nvim",
+    url = "https://github.com/chipsenkbeil/distant.nvim"
+  },
   ["editorconfig-vim"] = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
     url = "https://github.com/editorconfig/editorconfig-vim"
+  },
+  ["gh.nvim"] = {
+    config = { "\27LJ\2\nX\0\0\3\0\4\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\rlitee.gh\nsetup\14litee.lib\frequire\0" },
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/gh.nvim",
+    url = "https://github.com/ldelossa/gh.nvim"
   },
   ["git-worktree.nvim"] = {
     loaded = true,
@@ -115,6 +147,7 @@ _G.packer_plugins = {
     url = "https://github.com/ThePrimeagen/git-worktree.nvim"
   },
   ["gitsigns.nvim"] = {
+    config = { "\27LJ\2\n¼\5\0\0\5\0\26\0\0296\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\16\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\3=\3\17\0025\3\18\0=\3\19\0025\3\20\0=\3\21\0025\3\22\0=\3\23\0025\3\24\0=\3\25\2B\0\2\1K\0\1\0\tyadm\1\0\1\venable\1\19preview_config\1\0\5\brow\3\0\rrelative\vcursor\nstyle\fminimal\vborder\vsingle\bcol\3\1\28current_line_blame_opts\1\0\4\14virt_text\2\ndelay\3è\a\22ignore_whitespace\1\18virt_text_pos\beol\17watch_gitdir\1\0\2\17follow_files\2\rinterval\3è\a\nsigns\1\0\n\23current_line_blame\1\24attach_to_untracked\2\18sign_priority\3\6\14word_diff\1\vlinehl\1\nnumhl\2\15signcolumn\2!current_line_blame_formatter1<author>, <author_time:%Y-%m-%d> - <summary>\20max_file_length\3À¸\2\20update_debounce\3d\14untracked\1\0\1\ttext\bâ”†\17changedelete\1\0\1\ttext\6~\14topdelete\1\0\1\ttext\bâ€¾\vdelete\1\0\1\ttext\6_\vchange\1\0\1\ttext\bâ”‚\badd\1\0\0\1\0\1\ttext\bâ”‚\nsetup\rgitsigns\frequire\0" },
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
@@ -123,6 +156,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/gruvbox-community/gruvbox"
+  },
+  ["gruvbox-material"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/gruvbox-material",
+    url = "https://github.com/sainnhe/gruvbox-material"
   },
   harpoon = {
     loaded = true,
@@ -133,6 +171,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/iswap.nvim",
     url = "https://github.com/mizlan/iswap.nvim"
+  },
+  ["litee.nvim"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/litee.nvim",
+    url = "https://github.com/ldelossa/litee.nvim"
+  },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -159,6 +207,11 @@ _G.packer_plugins = {
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
+  ["neodev.nvim"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
+  },
   neoformat = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/neoformat",
@@ -168,6 +221,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/neogit",
     url = "https://github.com/TimUntersberger/neogit"
+  },
+  ["neovim-ayu"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/neovim-ayu",
+    url = "https://github.com/Shatur/neovim-ayu"
   },
   ["nui.nvim"] = {
     loaded = true,
@@ -179,15 +237,51 @@ _G.packer_plugins = {
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
+  ["nvim-autorunner"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/nvim-autorunner",
+    url = "https://github.com/krshrimali/nvim-autorunner"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    config = { "\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0" },
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
+  },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
+  },
+  ["nvim-solarized-lua"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/nvim-solarized-lua",
+    url = "https://github.com/ishan9299/nvim-solarized-lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -200,20 +294,30 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
   },
   ["nvim-web-devicons"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/peristocles/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/onedark.nvim",
     url = "https://github.com/navarasu/onedark.nvim"
   },
+  ["overseer.nvim"] = {
+    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\roverseer\frequire\0" },
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/overseer.nvim",
+    url = "https://github.com/stevearc/overseer.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["papercolor-theme"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/papercolor-theme",
+    url = "https://github.com/NLKNguyen/papercolor-theme"
   },
   ["plenary.nvim"] = {
     loaded = true,
@@ -260,10 +364,21 @@ _G.packer_plugins = {
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["vim-colorscheme-edit"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/vim-colorscheme-edit",
+    url = "https://github.com/nokobear/vim-colorscheme-edit"
   },
   ["vim-fugitive"] = {
     loaded = true,
@@ -275,6 +390,16 @@ _G.packer_plugins = {
     path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/vim-log-highlighting",
     url = "https://github.com/mtdl9/vim-log-highlighting"
   },
+  ["vim-vsnip"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    url = "https://github.com/hrsh7th/vim-vsnip"
+  },
+  ["vim-vsnip-integ"] = {
+    loaded = true,
+    path = "/home/peristocles/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
+    url = "https://github.com/hrsh7th/vim-vsnip-integ"
+  },
   ["which-key.nvim"] = {
     config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0" },
     loaded = true,
@@ -284,6 +409,30 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n¼\5\0\0\5\0\26\0\0296\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\16\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\3=\3\17\0025\3\18\0=\3\19\0025\3\20\0=\3\21\0025\3\22\0=\3\23\0025\3\24\0=\3\25\2B\0\2\1K\0\1\0\tyadm\1\0\1\venable\1\19preview_config\1\0\5\brow\3\0\rrelative\vcursor\nstyle\fminimal\vborder\vsingle\bcol\3\1\28current_line_blame_opts\1\0\4\14virt_text\2\ndelay\3è\a\22ignore_whitespace\1\18virt_text_pos\beol\17watch_gitdir\1\0\2\17follow_files\2\rinterval\3è\a\nsigns\1\0\n\23current_line_blame\1\24attach_to_untracked\2\18sign_priority\3\6\14word_diff\1\vlinehl\1\nnumhl\2\15signcolumn\2!current_line_blame_formatter1<author>, <author_time:%Y-%m-%d> - <summary>\20max_file_length\3À¸\2\20update_debounce\3d\14untracked\1\0\1\ttext\bâ”†\17changedelete\1\0\1\ttext\6~\14topdelete\1\0\1\ttext\bâ€¾\vdelete\1\0\1\ttext\6_\vchange\1\0\1\ttext\bâ”‚\badd\1\0\0\1\0\1\ttext\bâ”‚\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
+-- Config for: overseer.nvim
+time([[Config for overseer.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\roverseer\frequire\0", "config", "overseer.nvim")
+time([[Config for overseer.nvim]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
+time([[Config for nvim-colorizer.lua]], false)
+-- Config for: gh.nvim
+time([[Config for gh.nvim]], true)
+try_loadstring("\27LJ\2\nX\0\0\3\0\4\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\rlitee.gh\nsetup\14litee.lib\frequire\0", "config", "gh.nvim")
+time([[Config for gh.nvim]], false)
+-- Config for: distant.nvim
+time([[Config for distant.nvim]], true)
+try_loadstring("\27LJ\2\nt\0\0\6\0\a\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\5\0006\3\0\0'\5\3\0B\3\2\0029\3\4\3B\3\1\2=\3\6\2B\0\2\1K\0\1\0\6*\1\0\0\17chip_default\21distant.settings\nsetup\fdistant\frequire\0", "config", "distant.nvim")
+time([[Config for distant.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")

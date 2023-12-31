@@ -13,6 +13,25 @@ dap.adapters.lldb = {
 	name = "lldb",
 }
 
+local lldb2 = {
+	name = "Launch lldb2",
+	type = "lldb", -- matches the adapter
+	request = "launch", -- could also attach to a currently running process
+	program = function()
+		return vim.fn.input(
+			"Path to executable: ",
+			vim.fn.getcwd() .. "/",
+			"file"
+		)
+	end,
+	cwd = "${workspaceFolder}",
+	stopOnEntry = false,
+  args = function()
+    local argument_string = vim.fn.input('Program arguments: ')
+    return vim.fn.split(argument_string, " ", true)
+  end,
+	runInTerminal = false,
+}
 local lldb = {
 	name = "Launch lldb",
 	type = "lldb", -- matches the adapter
@@ -34,7 +53,8 @@ local lldb = {
 }
 
 dap.configurations.cpp = {
-	lldb
+	lldb,
+  lldb2
 }
 dap.configurations.rust = {
 	lldb -- different debuggers or more configurations can be used here
