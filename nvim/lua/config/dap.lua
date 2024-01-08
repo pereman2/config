@@ -2,11 +2,11 @@ local dap = require("dap")
 
 -- install codelldb https://github.com/helix-editor/helix/wiki/Debugger-Configurations#install-debuggers
 -- run `while sleep 1; do codelldb --port 13000; done` in spare terminal
-dap.adapters.codelldb = {
-    type = 'server',
-    host = '127.0.0.1',
-    port = 13000
-}
+-- dap.adapters.codelldb = {
+--     type = 'server',
+--     host = '127.0.0.1',
+--     port = 13000
+-- }
 dap.adapters.lldb = {
 	type = "executable",
 	command = "/usr/bin/lldb-vscode", -- adjust as needed
@@ -32,6 +32,7 @@ local lldb2 = {
   end,
 	runInTerminal = false,
 }
+
 local lldb = {
 	name = "Launch lldb",
 	type = "lldb", -- matches the adapter
@@ -99,3 +100,8 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+vim.keymap.set('n', '<F5>', require 'dap'.continue)
+vim.keymap.set('n', '<F10>', require 'dap'.step_over)
+vim.keymap.set('n', '<F11>', require 'dap'.step_into)
+vim.keymap.set('n', '<F12>', require 'dap'.step_out)

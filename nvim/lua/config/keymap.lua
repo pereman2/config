@@ -75,6 +75,11 @@ map("n", "<leader>dl", ':lua require("dap").run_last()<CR>', nil)
 map("n", "<leader>dt", ':DapTerminate<CR>', nil)
 -- end dap
 
+map("n", "<leader>p", ':Telescope project<CR>', nil)
+
+-- open config
+map("n", "<leader>oc", ':e ~/.config/nvim/lua/config<CR>', nil)
+
 vim.api.nvim_command('set clipboard=unnamedplus')
 
 

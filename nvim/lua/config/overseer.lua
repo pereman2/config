@@ -56,6 +56,45 @@ overseer.register_template(
     -- All fields are optional.
   }
 )
+
+overseer.register_template(
+  {
+    -- Required fields
+    name = "run tests ceph_test_objectstore",
+    builder = function(params)
+      -- This must return an overseer.TaskDefinition
+      return {
+        -- cmd is the only required field
+        cmd = {'build/bin/ceph_test_objectstore'},
+        -- additional arguments for the cmd
+        args = {
+              "--gtest_filter=\"ObjectStore/StoreTest.*/1\"",
+              "--debug_rocksdb=0/0",
+              "--plugin_dir=./lib",
+              "--debug_bluestore=20/20",
+              "--debug_bluefs=20/20",
+              "--log_file=log.log"
+        },
+        -- the name of the task (defaults to the cmd of the task)
+        name = "rust test bluestore",
+        -- set the working directory for the task
+        cwd = "build",
+      }
+    end,
+    -- Optional fields
+    desc = "run ceph's test objectstore",
+    -- Tags can be used in overseer.run_template()
+    -- tags = {overseer.TAG.BUILD},
+    params = {
+      -- See :help overseer-params
+    },
+    -- Determines sort order when choosing tasks. Lower comes first.
+    priority = 50,
+    -- Add requirements for this template. If they are not met, the template will not be visible.
+    -- All fields are optional.
+  }
+)
+
 overseer.setup(overseer_config)
 
 

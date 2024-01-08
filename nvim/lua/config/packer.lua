@@ -226,5 +226,49 @@ return require("packer").startup(function(use)
     'stevearc/overseer.nvim',
   }
 
+  use "nvim-lua/plenary.nvim"
+
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "alfaix/neotest-gtest"
+    }
+
+  }
+
+  use {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+          require("todo-comments").setup {}
+      end
+  }
+  use {
+      "folke/trouble.nvim",
+      config = function()
+          require("trouble").setup {}
+      end,
+      requires = "kyazdani42/nvim-web-devicons"
+  }
+  use { 'rktjmp/lush.nvim' }
+
+  use {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+        patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json",
+        "install-deps.sh" },
+
+        silent_chdir=false
+      }
+    end
+  }
+  use "github/copilot.vim"
 end)
 

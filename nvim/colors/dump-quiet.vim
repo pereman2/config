@@ -24,32 +24,33 @@ set fillchars="vert:\ "
 " Blue #407dd4
 
 if &bg=='dark'
-  hi      Normal       guifg=#ffffff guibg=#161821 ctermfg=NONE  ctermbg=NONE gui=NONE cterm=NONE
+  hi      Normal       guifg=#c2a3a3 guibg=#24292E ctermfg=NONE  ctermbg=NONE gui=NONE cterm=NONE
 elseif &bg=='light'
   hi      Normal       guifg=#dadada guibg=#d0d0d0 ctermfg=NONE  ctermbg=NONE gui=NONE cterm=NONE
 endif
-hi      Comment      guifg=#6c6c6c guibg=NONE    ctermfg=242  ctermbg=NONE gui=bold cterm=bold
-hi      Constant     guifg=#9CEAFD guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
-hi      String       guifg=#dadada guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
+
+hi      Comment      guifg=#6a7887 guibg=NONE    ctermfg=242  ctermbg=NONE gui=bold cterm=bold
+hi      Constant     guifg=#7dbfef guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
+hi      String       guifg=#60bfd2 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
 hi link Character    Constant
 hi link Number       Constant
 hi link Boolean      Constant
 hi link Float        Constant
-hi      Identifier   guifg=#ffffff guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
-hi      Function     guifg=#409dd4 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
-hi      Statement    guifg=#d46040 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
-hi      Conditional  guifg=#d46040 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
+hi      Identifier   guifg=#c2a3a3 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
+hi      Function     guifg=#FFCE6B guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
+hi      Statement    guifg=#F07171 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
+hi      Conditional  guifg=#F07171 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
 hi      Operator     guifg=#dadada guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
 hi link Exception    Statement
 hi      PreProc      guifg=#409dd4 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
 hi      Define       guifg=#FFFFFF guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
-hi      Type         guifg=#ccd440 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
+hi      Type         guifg=#409dd4 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
 hi      TypeDef      guifg=#d46040 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
-hi link StorageClass Type
+hi      StorageClass guifg=#d46040 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
 hi      Special      guifg=#F79256 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
 hi      Underlined   guifg=#dadada guibg=NONE    ctermfg=253  ctermbg=NONE gui=underline cterm=underline
 hi      Ignore       guifg=#dadada guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
-hi      Error        guifg=#ff005f guibg=#080808 ctermfg=197  ctermbg=232  gui=bold,reverse cterm=bold,reverse
+hi      Error        guifg=#F07171 guibg=#080808 ctermfg=197  ctermbg=232  gui=bold,reverse cterm=bold,reverse
 hi      Todo         guifg=#00ffaf guibg=NONE    ctermfg=49   ctermbg=NONE gui=bold,reverse cterm=bold,reverse
 hi      ColorColumn  guifg=NONE    guibg=#1c1c1c ctermfg=NONE ctermbg=234  gui=NONE cterm=NONE
 hi      DiffAdd      guifg=#60e29b guibg=#080808 ctermfg=34   ctermbg=232  gui=reverse cterm=reverse
