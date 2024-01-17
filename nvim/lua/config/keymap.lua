@@ -79,6 +79,7 @@ map("n", "<leader>p", ':Telescope project<CR>', nil)
 
 -- open config
 map("n", "<leader>oc", ':e ~/.config/nvim/lua/config<CR>', nil)
+map("n", "<leader>od", ':e ~/.config/nvim/lua/config/dap.lua<CR>', nil)
 
 vim.api.nvim_command('set clipboard=unnamedplus')
 

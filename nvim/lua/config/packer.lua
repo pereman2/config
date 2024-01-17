@@ -36,6 +36,10 @@ return require("packer").startup(function(use)
     end
   }
   use {
+    "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+  }
+  use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate' -- useful to update in case of new version
   }
@@ -82,7 +86,7 @@ return require("packer").startup(function(use)
           untracked    = { text = '┆' },
         },
         signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
-        numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
+        numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
         linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
         word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
         watch_gitdir = {
@@ -162,6 +166,7 @@ return require("packer").startup(function(use)
   use 'mfussenegger/nvim-dap'
   use 'theHamsta/nvim-dap-virtual-text'
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use "leoluz/nvim-dap-go"
   -- END DAP
 
   use "folke/neodev.nvim"
@@ -234,10 +239,12 @@ return require("packer").startup(function(use)
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "alfaix/neotest-gtest"
+      "alfaix/neotest-gtest",
+      "nvim-neotest/neotest-go",
     }
 
   }
+
 
   use {
       "folke/todo-comments.nvim",
@@ -270,5 +277,6 @@ return require("packer").startup(function(use)
     end
   }
   use "github/copilot.vim"
+  use 'Mofiqul/adwaita.nvim'
 end)
 

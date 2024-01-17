@@ -9,6 +9,8 @@ indent_size = 2
 indent_style = space
 charset = utf-8
 
+[*.{go}]
+indent_size = 4
 # Matches multiple files with brace expansion notation
 # Set default charset
 [*.{ts}]
@@ -32,4 +34,5 @@ indent_style = tab
 # Matches the exact files either package.json or .travis.yml
 [{package.json,.travis.yml}]
 indent_size = 2
+
 

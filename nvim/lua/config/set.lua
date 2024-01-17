@@ -61,6 +61,7 @@ vim.g.neoformat_c_clangformat = {
 if vim.g.neovide then
   vim.o.guifont = "Source Code Pro:h12"
   vim.g.neovide_cursor_vfx_mode = "railgun"
+  vim.g.neovide_refresh_rate = 120
   vim.g.neovide_profiler = false
   vim.keymap.set('n', '<D-s>', ':w<CR>') -- Save
   vim.keymap.set('v', '<D-c>', '"+y') -- Copy

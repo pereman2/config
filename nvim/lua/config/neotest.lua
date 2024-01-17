@@ -1,35 +1,25 @@
-require("neotest").setup({
-  adapters = {
-    -- require("neotest-plenary"),
-    -- require("neotest-vim-test")({
-    --   ignore_file_types = { "python", "vim", "lua" },
-    -- }),
-    require("neotest-gtest").setup({})
-  },
-})
-
-
 local utils = require("neotest-gtest.utils")
 local lib = require("neotest.lib")
 
-require("neotest-gtest").setup({
+
+local neotest_gtest_config = {
   -- fun(string) -> string: takes a file path as string and returns its project root
   -- directory
   -- neotest.lib.files.match_root_pattern() is a convenient factory for these functions:
   -- it returns a function that returns true if the directory contains any entries
   -- with matching names
   root = lib.files.match_root_pattern(
-    "compile_commands.json",
-    "compile_flags.txt",
-    "WORKSPACE",
-    ".clangd",
-    "init.lua",
-    "init.vim",
-    "build",
-    ".git"
+  "compile_commands.json",
+  "compile_flags.txt",
+  "WORKSPACE",
+  ".clangd",
+  "init.lua",
+  "init.vim",
+  "build",
+  ".git"
   ),
   -- which debug adapter to use? dap.adapters.<this debug_adapter> must be defined.
-  debug_adapter = "codelldb",
+  debug_adapter = "lldb",
   -- fun(string) -> bool: takes a file path as string and returns true if it contains
   -- tests
   is_test_file = function(file)
@@ -68,4 +58,21 @@ require("neotest-gtest").setup({
   filter_dir = function(name, rel_path, root)
     -- see :h neotest.Config.discovery for defaults
   end,
+
+}
+
+require("neotest").setup({
+  adapters = {
+    -- require("neotest-plenary"),
+    -- require("neotest-vim-test")({
+    --   ignore_file_types = { "python", "vim", "lua" },
+    -- }),
+    require("neotest-gtest").setup(neotest_gtest_config),
+    require("neotest-go")({
+      experimental = {
+        test_table = true,
+      },
+      args = { "-count=1", "-timeout=60s" }
+    })
+  },
 })

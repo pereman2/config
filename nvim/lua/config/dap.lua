@@ -2,34 +2,34 @@ local dap = require("dap")
 
 -- install codelldb https://github.com/helix-editor/helix/wiki/Debugger-Configurations#install-debuggers
 -- run `while sleep 1; do codelldb --port 13000; done` in spare terminal
--- dap.adapters.codelldb = {
---     type = 'server',
---     host = '127.0.0.1',
---     port = 13000
--- }
+dap.adapters.codelldb = {
+    type = 'server',
+    host = '127.0.0.1',
+    port = 13000
+}
 dap.adapters.lldb = {
 	type = "executable",
 	command = "/usr/bin/lldb-vscode", -- adjust as needed
 	name = "lldb",
 }
 
-local lldb2 = {
-	name = "Launch lldb2",
+local ceph = {
+	name = "Launch ceph",
 	type = "lldb", -- matches the adapter
 	request = "launch", -- could also attach to a currently running process
-	program = function()
-		return vim.fn.input(
-			"Path to executable: ",
-			vim.fn.getcwd() .. "/",
-			"file"
-		)
-	end,
-	cwd = "${workspaceFolder}",
+	program = "${workspaceFolder}/build/bin/ceph_test_objectstore",
+	cwd = "${workspaceFolder}/build",
 	stopOnEntry = false,
-  args = function()
-    local argument_string = vim.fn.input('Program arguments: ')
-    return vim.fn.split(argument_string, " ", true)
-  end,
+  args = {
+    "--log_to_stderr=false",
+    "--log_file=log.log",
+    "--gtest_filter=ObjectStore/StoreTest.BufferSpaceRead/1", -- Separate the gtest_filter argument
+    "--gunit_break_on_failure",
+    "--debug_bluestore=30",
+    "--debug_bluefs=20",
+    "--log_file=xd.log",
+    "--plugin-dir=./lib"
+  },
 	runInTerminal = false,
 }
 
@@ -53,9 +53,10 @@ local lldb = {
 	runInTerminal = false,
 }
 
+
 dap.configurations.cpp = {
 	lldb,
-  lldb2
+  ceph
 }
 dap.configurations.rust = {
 	lldb -- different debuggers or more configurations can be used here
@@ -105,3 +106,43 @@ vim.keymap.set('n', '<F5>', require 'dap'.continue)
 vim.keymap.set('n', '<F10>', require 'dap'.step_over)
 vim.keymap.set('n', '<F11>', require 'dap'.step_into)
 vim.keymap.set('n', '<F12>', require 'dap'.step_out)
+
+
+
+require('dap-go').setup {
+  -- Additional dap configurations can be added.
+  -- dap_configurations accepts a list of tables where each entry
+  -- represents a dap configuration. For more details do:
+  -- :help dap-configuration
+  dap_configurations = {
+    {
+      -- Must be "go" or it will be ignored by the plugin
+      type = "go",
+      name = "Attach remote",
+      mode = "remote",
+      request = "attach",
+    },
+  },
+  -- delve configurations
+  delve = {
+    -- the path to the executable dlv which will be used for debugging.
+    -- by default, this is the "dlv" executable on your PATH.
+    path = "dlv",
+    -- time to wait for delve to initialize the debug session.
+    -- default to 20 seconds
+    initialize_timeout_sec = 20,
+    -- a string that defines the port to start delve debugger.
+    -- default to string "${port}" which instructs nvim-dap
+    -- to start the process in a random available port
+    port = "${port}",
+    -- additional args to pass to dlv
+    args = {},
+    -- the build flags that are passed to delve.
+    -- defaults to empty string, but can be used to provide flags
+    -- such as "-tags=unit" to make sure the test suite is
+    -- compiled during debugging, for example.
+    -- passing build flags using args is ineffective, as those are
+    -- ignored by delve in dap mode.
+    build_flags = "",
+  },
+}
