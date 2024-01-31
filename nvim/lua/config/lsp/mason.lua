@@ -19,9 +19,12 @@ local servers = {
     html = {},
     pyright = {},
     bashls = {},
-    gopls = {},
+    gopls = {
+      cmd = {"/usr/bin/gopls"}
+    },
     -- lua_ls = {}, configured with neodev
     cmake = {},
+    zls = {},
 }
 
 -- Here we declare which settings to pass to the mason, and also ensure servers are installed. If not, they will be installed automatically.
@@ -82,6 +85,7 @@ lspconfig.lua_ls.setup({
 -- loop through the servers
 for server, opts in pairs(servers) do
     opts["on_attach"] = on_attach
+    opts["inlay_hints"] = { enabled = true }
 
     -- get the server name
     server = vim.split(server, "@")[1]

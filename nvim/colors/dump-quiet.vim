@@ -24,7 +24,7 @@ set fillchars="vert:\ "
 " Blue #407dd4
 
 if &bg=='dark'
-  hi      Normal       guifg=#c2a3a3 guibg=#24292E ctermfg=NONE  ctermbg=NONE gui=NONE cterm=NONE
+  hi      Normal       guifg=#d1d1d1 guibg=#1c1b1b ctermfg=NONE  ctermbg=NONE gui=NONE cterm=NONE
 elseif &bg=='light'
   hi      Normal       guifg=#dadada guibg=#d0d0d0 ctermfg=NONE  ctermbg=NONE gui=NONE cterm=NONE
 endif
@@ -36,7 +36,7 @@ hi link Character    Constant
 hi link Number       Constant
 hi link Boolean      Constant
 hi link Float        Constant
-hi      Identifier   guifg=#c2a3a3 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
+hi      Identifier   guifg=#d1d1d1 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
 hi      Function     guifg=#FFCE6B guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
 hi      Statement    guifg=#F07171 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE
 hi      Conditional  guifg=#F07171 guibg=NONE    ctermfg=253  ctermbg=NONE gui=NONE cterm=NONE

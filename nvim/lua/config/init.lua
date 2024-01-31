@@ -16,3 +16,8 @@ require("config.indent-line")
 require("config.overseer")
 -- require("config.recession")
 require("config.neotest")
+require("config.oil")
+
+-- simple setups 
+require("ibl").setup{}
+require("Comment").setup{}

@@ -32,6 +32,8 @@ map("n", "<leader>4", ':lua require("harpoon.ui").nav_file(4)<CR>', nil)
 
 map("n", ",<Space>", ":nohlsearch<CR>", { silent = true })
 
+map('n', '<leader>s', '<cmd>lua require("spectre").toggle()<CR>', nil)
+
 map("n", "<C-l>", '<C-w>l', nil)
 map("n", "<C-h>", '<C-w>h', nil)
 map("n", "<C-j>", '<C-w>j', nil)
@@ -54,7 +56,7 @@ map("n", "<leader>h", "<cmd>ClangdSwitchSourceHeader<CR>", nil)
 map("n", "<leader>wl", "<cmd>lua require('config.git_worktree').ListBranches()<CR>", nil)
 map("n", "<leader>wa", "<cmd>lua require('config.git_worktree').CreateWorktree()<CR>", nil)
 
-map("n", "<leader>e", ":Explore<CR>", nil)
+map("n", "<leader>e", ":Oil<CR>", nil)
 
 
 map("n", "<leader>wc", ":lua require('config.git_worktree').CreateBranch()<CR>", nil)

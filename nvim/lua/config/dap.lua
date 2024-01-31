@@ -23,12 +23,12 @@ local ceph = {
   args = {
     "--log_to_stderr=false",
     "--log_file=log.log",
-    "--gtest_filter=ObjectStore/StoreTest.BufferSpaceRead/1", -- Separate the gtest_filter argument
+    "--gtest_filter=ObjectStore/StoreTestSpecificAUSize.SyntheticLimited/1", -- Separate the gtest_filter argument
     "--gunit_break_on_failure",
     "--debug_bluestore=30",
     "--debug_bluefs=20",
     "--log_file=xd.log",
-    "--plugin-dir=./lib"
+    "--plugin_dir=./lib"
   },
 	runInTerminal = false,
 }

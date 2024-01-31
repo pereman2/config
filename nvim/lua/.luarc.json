@@ -55,6 +55,7 @@
         "/home/peristocles/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/lua",
         "/home/peristocles/.local/share/nvim/site/pack/packer/start/which-key.nvim/lua",
         "/home/peristocles/binaries/config/nvim/lua",
-        "${3rd}/luv/library"
+        "${3rd}/luv/library",
+        "${3rd}/luassert/library"
     ]
 }

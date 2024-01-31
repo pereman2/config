@@ -278,5 +278,34 @@ return require("packer").startup(function(use)
   }
   use "github/copilot.vim"
   use 'Mofiqul/adwaita.nvim'
+  use "jbyuki/quickmath.nvim"
+
+  use {
+    "stevearc/oil.nvim",
+    config = function()
+      require("oil").setup()
+    end,
+  }
+  use {
+    'nvim-pack/nvim-spectre',
+    config = function()
+      require('spectre').setup()
+    end
+  }
+
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("ibl").setup{}
+    end
+  }
+
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup{}
+    end
+  }
+
 end)
 
