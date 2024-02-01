@@ -59,7 +59,7 @@ vim.g.neoformat_c_clangformat = {
 
 
 if vim.g.neovide then
-  vim.o.guifont = "Source Code Pro:h12"
+  vim.o.guifont = "Iosevka:h18"
   vim.g.neovide_cursor_vfx_mode = "railgun"
   vim.g.neovide_refresh_rate = 120
   vim.g.neovide_profiler = false

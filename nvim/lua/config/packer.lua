@@ -307,5 +307,10 @@ return require("packer").startup(function(use)
     end
   }
 
+  use {
+    "nobbmaestro/nvim-andromeda",
+    requires = { "tjdevries/colorbuddy.nvim", branch = "dev" }
+  }
+
 end)
 
