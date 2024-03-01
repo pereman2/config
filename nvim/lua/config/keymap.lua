@@ -48,6 +48,8 @@ map("n", "<leader>gl", ':vertical Git log -n 1000<CR>', nil)
 map("n", "<leader>gd", ':vertical Git diff<CR>', nil)
 map("n", "<leader>gb", ':vertical Git blame<CR>', nil)
 map("n", "<leader>gs", ':vertical Git<CR>', nil)
+map("n", "<leader>ghs", ':vertical Gitsigns stage_hunk<CR>', nil)
+map("n", "<leader>ghu", ':vertical Gitsigns undo_stage_hunk<CR>', nil)
 
 map("v", "<leader>\\", "<cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", nil)
 

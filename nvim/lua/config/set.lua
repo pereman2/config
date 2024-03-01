@@ -59,7 +59,7 @@ vim.g.neoformat_c_clangformat = {
 
 
 if vim.g.neovide then
-  vim.o.guifont = "Iosevka:h18"
+  vim.o.guifont = "Iosevka:h14"
   vim.g.neovide_cursor_vfx_mode = "railgun"
   vim.g.neovide_refresh_rate = 120
   vim.g.neovide_profiler = false
@@ -78,3 +78,9 @@ vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true}
 vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
 vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
 
+
+
+
+-- vim.api.nvim_set_hl(0, "@lsp.type.variable", { bg = "#1e1e1e", fg = "#d4d4d4" })
+vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#000000", fg = "#ffffff" })
+vim.api.nvim_set_hl(0, "WinSeparator", { bg = "#1c1b1b", fg = "#000000" })

@@ -21,3 +21,4 @@ require("config.oil")
 -- simple setups 
 require("ibl").setup{}
 require("Comment").setup{}
+require("perfanno").setup()

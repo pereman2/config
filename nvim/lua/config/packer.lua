@@ -312,5 +312,8 @@ return require("packer").startup(function(use)
     requires = { "tjdevries/colorbuddy.nvim", branch = "dev" }
   }
 
+  use 't-troebst/perfanno.nvim'
+  use "sindrets/diffview.nvim"
+
 end)
 
