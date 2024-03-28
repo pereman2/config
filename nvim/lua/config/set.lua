@@ -81,6 +81,15 @@ vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true}
 
 
 
--- vim.api.nvim_set_hl(0, "@lsp.type.variable", { bg = "#1e1e1e", fg = "#d4d4d4" })
-vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#000000", fg = "#ffffff" })
-vim.api.nvim_set_hl(0, "WinSeparator", { bg = "#1c1b1b", fg = "#000000" })
+-- if color scheme is dump-quiet
+if vim.g.colors_name == "dump-quiet" then
+    vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#000000", fg = "#ffffff" })
+    vim.api.nvim_set_hl(0, "WinSeparator", { bg = "#1c1b1b", fg = "#000000" })
+    vim.api.nvim_set_hl(0, "IblIndent", { fg = "#000000" })
+    vim.api.nvim_set_hl(0, "IblScope", { fg = "#FFCE6B" })
+    vim.api.nvim_set_hl(0, "CursorColumn", { fg = "#FFCE6B"})
+end
+
+vim.cmd("packadd termdebug")
+vim.cmd("packadd vimspector")
+vim.cmd("let g:vimspector_enable_mappings = 'HUMAN'")

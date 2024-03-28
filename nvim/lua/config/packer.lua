@@ -296,7 +296,16 @@ return require("packer").startup(function(use)
   use {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-      require("ibl").setup{}
+      require("ibl").setup{
+        indent = {
+          highlight = { "CursorColumn", "Whitespace" },
+          char = "|"
+        },
+        whitespace = {
+          highlight = { "CursorColumn", "Whitespace" },
+        },
+        scope = { enabled = true },
+      }
     end
   }
 
@@ -314,6 +323,11 @@ return require("packer").startup(function(use)
 
   use 't-troebst/perfanno.nvim'
   use "sindrets/diffview.nvim"
+
+
+  use 'dbgx/lldb.nvim'
+  use 'mdedonno1337/disassemble.nvim'
+  use 'puremourning/vimspector'
 
 end)
 

@@ -45,7 +45,7 @@ local lldb = {
 		)
 	end,
 	cwd = "${workspaceFolder}",
-	stopOnEntry = false,
+	stopOnEntry = true,
   args = function()
     local argument_string = vim.fn.input('Program arguments: ')
     return vim.fn.split(argument_string, " ", true)
