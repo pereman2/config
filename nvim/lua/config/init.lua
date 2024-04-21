@@ -18,8 +18,25 @@ require("config.overseer")
 require("config.neotest")
 require("config.oil")
 
--- simple setups 
-require("ibl").setup{}
-require("Comment").setup{}
+-- simple setups
+require("Comment").setup {}
 require("perfanno").setup()
 
+local autorunner = require('autorunner')
+autorunner.term_direction = "horizontal"
+autorunner.term_size = 10
+require("ibl").setup {}
+require("ibl").setup({})
+require 'navigator'.setup()
+
+require("project_nvim").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+    patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json",
+    "install-deps.sh" },
+
+    detection_methods = { "pattern", "lsp" },
+
+    silent_chdir = false
+}

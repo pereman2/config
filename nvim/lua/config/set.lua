@@ -43,7 +43,7 @@ vim.opt.smartcase = true
 
 vim.g.mapleader = ","
 
-vim.cmd('colorscheme dump-quiet')
+vim.cmd('colorscheme github_dark_high_contrast')
 vim.cmd('set signcolumn=yes')
 
 vim.diagnostic.config({
@@ -82,13 +82,15 @@ vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true}
 
 
 -- if color scheme is dump-quiet
-if vim.g.colors_name == "dump-quiet" then
-    vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#000000", fg = "#ffffff" })
-    vim.api.nvim_set_hl(0, "WinSeparator", { bg = "#1c1b1b", fg = "#000000" })
-    vim.api.nvim_set_hl(0, "IblIndent", { fg = "#000000" })
-    vim.api.nvim_set_hl(0, "IblScope", { fg = "#FFCE6B" })
-    vim.api.nvim_set_hl(0, "CursorColumn", { fg = "#FFCE6B"})
-end
+-- if vim.g.colors_name == "dump-quiet" then
+--     vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#000000", fg = "#ffffff" })
+--     vim.api.nvim_set_hl(0, "WinSeparator", { bg = "#1c1b1b", fg = "#000000" })
+--     vim.api.nvim_set_hl(0, "IblIndent", { fg = "#000000" })
+--     vim.api.nvim_set_hl(0, "IblScope", { fg = "#FFCE6B" })
+--     vim.api.nvim_set_hl(0, "CursorColumn", { fg = "#FFCE6B"})
+-- end
+
+vim.g.zig_fmt_autosave = 0
 
 vim.cmd("packadd termdebug")
 vim.cmd("packadd vimspector")

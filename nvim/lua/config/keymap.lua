@@ -1,5 +1,3 @@
-
-
 local function map(mode, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then
@@ -9,17 +7,17 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "<leader>ff", ":Telescope git_files<CR>", nil)
+map("n", "<leader>fr", ":Telescope lsp_references<CR>", nil)
 map("n", "<leader>fa", ":Telescope find_files<CR>", nil)
-map("n", "<leader>fsd", ":Telescope lsp_document_symbols<CR>", nil) 
+map("n", "<leader>fsd", ":Telescope lsp_document_symbols<CR>", nil)
 map("n", "<leader>fsa", ":Telescope lsp_dynamic_workspace_symbols<CR>", nil)
 map("n", "<leader>fso", ":SymbolsOutlineOpen<CR>", nil)
 
 map("n", "<leader>fa", ":Telescope find_files<CR>", nil)
 map("n", "<leader>b", ":Telescope buffers<CR>", nil)
-map("n", "<leader>`", ":Telescope project<CR>", nil)
+map("n", "<leader>`", ":lua require 'telescope'.extensions.projects.projects {}<CR>", nil)
 map("n", "<leader>t", ":Telescope<CR>", nil)
 map("n", "<leader>c", ":Telescope commands<CR>", nil)
-
 -- harpoon
 
 map("n", "<leader>z", ':lua require("harpoon.mark").add_file()<CR>', nil)
@@ -39,7 +37,6 @@ map("n", "<C-h>", '<C-w>h', nil)
 map("n", "<C-j>", '<C-w>j', nil)
 map("n", "<C-k>", '<C-w>k', nil)
 
-map("n", "<leader>r", ':Telescope lsp_references<CR>', nil)
 map("n", "<leader>a", ':lua vim.lsp.buf.code_action()<CR>', nil)
 
 map("n", "<leader>m", ':Man<CR><C-w>j', nil)
@@ -79,8 +76,6 @@ map("n", "<leader>dl", ':lua require("dap").run_last()<CR>', nil)
 map("n", "<leader>dt", ':DapTerminate<CR>', nil)
 -- end dap
 
-map("n", "<leader>p", ':Telescope project<CR>', nil)
-
 -- open config
 map("n", "<leader>oc", ':e ~/.config/nvim/lua/config<CR>', nil)
 map("n", "<leader>od", ':e ~/.config/nvim/lua/config/dap.lua<CR>', nil)
@@ -91,3 +86,10 @@ vim.api.nvim_command('set clipboard=unnamedplus')
 autorunner = require("autorunner")
 vim.api.nvim_create_user_command('Compile', autorunner.run, { nargs = 0 })
 vim.api.nvim_create_user_command('CompileEdit', autorunner.edit_file, { nargs = 0 })
+
+map("n", "<leader>rr", ':AutoRunnerTermRun<CR>', nil)
+map("n", "<leader>rt", ':AutoRunnerTermToggle<CR>', nil)
+map("n", "<leader>rc", ':AutoRunnerClearBuffer<CR>', nil)
+map("n", "<leader>re", ':AutoRunnerEditFile<CR>', nil)
+map("n", "<leader>rn", ':!~/binaries/config/bin/autorunner_create_build_file.sh<CR>', nil) -- automatically create file to compile
+map("n", "<leader>ra", ':AutoRunnerAddCommand<CR>', nil)

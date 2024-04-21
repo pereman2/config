@@ -20,11 +20,13 @@ local servers = {
     pyright = {},
     bashls = {},
     gopls = {
-      cmd = {"/usr/bin/gopls"}
+      cmd = {"gopls"}
     },
     -- lua_ls = {}, configured with neodev
     cmake = {},
-    zls = {},
+    zls = {
+        inlay_hints = { enabled = true }
+    },
 }
 
 -- Here we declare which settings to pass to the mason, and also ensure servers are installed. If not, they will be installed automatically.
@@ -39,12 +41,16 @@ local settings = {
     },
     log_level = vim.log.levels.INFO,
     max_concurrent_installers = 4,
+    ensure_installed = servers,
+    automatic_installation = true,
+    inlay_hints = { enabled = true },
 }
 
 mason.setup(settings)
 mason_lspconfig.setup {
     ensure_installed = servers,
     automatic_installation = true,
+    inlay_hints = { enabled = true },
 }
 
 -- we'll need to call lspconfig to pass our server to the native neovim lspconfig.

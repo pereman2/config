@@ -1,4 +1,4 @@
-require('telescope').setup{
+require('telescope').setup {
     defaults = {
         vimgrep_arguments = {
             'rg',
@@ -14,8 +14,8 @@ require('telescope').setup{
     extensions = {
         project = {
             base_dirs = {
-                {'~/redhat', max_depth=2},
-                {'~/fun', max_depth=3},
+                { '~/redhat', max_depth = 2 },
+                { '~/fun',    max_depth = 3 },
             },
             hidden_files = false, -- default: false
             theme = "dropdown"
@@ -24,5 +24,5 @@ require('telescope').setup{
     }
 }
 
-require'telescope'.load_extension('project')
+require 'telescope'.load_extension('project')
 require("telescope").load_extension("git_worktree")
