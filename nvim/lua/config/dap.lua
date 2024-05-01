@@ -54,6 +54,9 @@ local lldb = {
 }
 
 
+dap.configurations.zig = {
+	lldb,
+}
 dap.configurations.cpp = {
 	lldb,
   ceph

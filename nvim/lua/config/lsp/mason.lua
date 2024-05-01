@@ -10,9 +10,7 @@ end
 
 local servers = {
     rust_analyzer = {},
-    clangd = {
-      cmd = {"clangd"}
-    },
+    clangd = {},
     tsserver = {},
     cssmodules_ls = {},
     emmet_ls = {},
@@ -20,7 +18,7 @@ local servers = {
     pyright = {},
     bashls = {},
     gopls = {
-      cmd = {"gopls"}
+        cmd = { "gopls" }
     },
     -- lua_ls = {}, configured with neodev
     cmake = {},
@@ -34,9 +32,9 @@ local settings = {
     ui = {
         border = "rounded",
         icons = {
-        package_installed = "◍",
-        package_pending = "◍",
-        package_uninstalled = "◍",
+            package_installed = "◍",
+            package_pending = "◍",
+            package_uninstalled = "◍",
         },
     },
     log_level = vim.log.levels.INFO,
@@ -51,6 +49,7 @@ mason_lspconfig.setup {
     ensure_installed = servers,
     automatic_installation = true,
     inlay_hints = { enabled = true },
+
 }
 
 -- we'll need to call lspconfig to pass our server to the native neovim lspconfig.
@@ -60,32 +59,32 @@ if not lspconfig_status_ok then
 end
 
 local function on_attach(client, bufnr)
-  -- Enable completion triggered by <C-X><C-O>
-  -- See `:help omnifunc` and `:help ins-completion` for more information.
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    -- Enable completion triggered by <C-X><C-O>
+    -- See `:help omnifunc` and `:help ins-completion` for more information.
+    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  -- Use LSP as the handler for formatexpr.
-  -- See `:help formatexpr` for more information.
-  vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
+    -- Use LSP as the handler for formatexpr.
+    -- See `:help formatexpr` for more information.
+    vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
 
-  -- Configure key mappings
-  require("config.lsp.keymaps").setup(client, bufnr)
+    -- Configure key mappings
+    require("config.lsp.keymaps").setup(client, bufnr)
 end
 
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
 require("neodev").setup({
-  -- add any options here, or leave empty to use the default settings
+    -- add any options here, or leave empty to use the default settings
 })
 
 -- example to setup lua_ls and enable call snippets
 lspconfig.lua_ls.setup({
-  settings = {
-    Lua = {
-      completion = {
-        callSnippet = "Replace"
-      }
+    settings = {
+        Lua = {
+            completion = {
+                callSnippet = "Replace"
+            }
+        }
     }
-  }
 })
 
 -- loop through the servers
@@ -100,3 +99,6 @@ for server, opts in pairs(servers) do
     lspconfig[server].setup(opts)
 end
 
+require('lspconfig').clangd.setup{
+    cmd = {"/usr/bin/clangd"}
+}

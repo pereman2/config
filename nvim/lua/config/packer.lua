@@ -65,6 +65,7 @@ return require("packer").startup(function(use)
     use 'ishan9299/nvim-solarized-lua'
     use 'sainnhe/gruvbox-material'
     use({ 'projekt0n/github-nvim-theme' })
+    use 'p00f/alabaster.nvim'
 
     use({ 'rose-pine/neovim', as = 'rose-pine', })
 
@@ -315,7 +316,6 @@ return require("packer").startup(function(use)
     use 'mdedonno1337/disassemble.nvim'
     use 'puremourning/vimspector'
 
-    use 'RRethy/vim-illuminate'
     use({
         'ray-x/navigator.lua',
         requires = {

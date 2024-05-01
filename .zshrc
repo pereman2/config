@@ -20,13 +20,13 @@ fi
  source ~/.config/antigen.zsh
  
  antigen use oh-my-zsh
- antigen theme romkatv/powerlevel10k
+#  antigen theme romkatv/powerlevel10k
  antigen bundle git
  antigen bundle zsh-users/zsh-autosuggestions
  antigen bundle zsh-users/zsh-completions
  # antigen bundle zsh-users/zsh-history-substring-search
  antigen bundle zsh-users/zsh-history-substring-search
- antigen theme clean
+ antigen theme cypher
  antigen bundle agkozak/zsh-z
  antigen bundle Aloxaf/fzf-tab
  antigen bundle unixorn/fzf-zsh-plugin@main
@@ -56,6 +56,10 @@ export ZSH_THEME="powerlevel10k/powerlevel10k"
  export PATH="$HOME/.emacs.d/bin/:$PATH"
  export PATH="$HOME/.local/bin:$PATH"
  export PATH="$HOME/binaries/lua-language-server/bin/:$PATH"
+ export PATH="$HOME/binaries/seer/src/:$PATH"
+ export PATH="$HOME/binaries/zig/:$PATH"
+export PATH="/home/peristocles/.local/share/solana/install/active_release/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
  export JSONNET_PATH="$HOME/binaries/grafonnet-lib/grafonnet:$JSONNET_PATH"
  export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=2'
  

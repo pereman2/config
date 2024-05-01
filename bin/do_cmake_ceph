@@ -1,9 +1,12 @@
 #!/bin/bash
 ./do_cmake.sh -DCMAKE_EXPORT_COMPILE_COMMANDS=1 \
+  -DCMAKE_BUILD_TYPE=Debug \
   -DPYTHON_EXECUTABLE=/usr/bin/python3.10 \
   -DPython3_ROOT_DIR=/usr/bin \
-  -DCMAKE_BUILD_TYPE=Debug \
   -DCMAKE_C_FLAGS="-fno-omit-frame-pointer" \
   -DCMAKE_CXX_FLAGS="-fno-omit-frame-pointer" \
-  -DALLOCATOR=libc
+  # -DTRACY_ENABLE_DELAYED_INIT=ON  \
+  # -DTRACY_ENABLE_MANUAL_LIFETIME=ON \
+  # -DALLOCATOR=libc
+  # -DCMAKE_BUILD_TYPE=RelWithDebInfo \
 

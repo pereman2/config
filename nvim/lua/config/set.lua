@@ -43,7 +43,8 @@ vim.opt.smartcase = true
 
 vim.g.mapleader = ","
 
-vim.cmd('colorscheme github_dark_high_contrast')
+vim.cmd('colorscheme default')
+vim.cmd('colorscheme dump-quiet')
 vim.cmd('set signcolumn=yes')
 
 vim.diagnostic.config({
@@ -53,42 +54,42 @@ vim.diagnostic.config({
 })
 
 vim.g.neoformat_c_clangformat = {
-             exe = "clang-format",
-             args = {'-style=~/clang-format-config'},
-             }
+    exe = "clang-format",
+    args = { '-style=~/clang-format-config' },
+}
 
 
 if vim.g.neovide then
-  vim.o.guifont = "Iosevka:h14"
-  vim.g.neovide_cursor_vfx_mode = "railgun"
-  vim.g.neovide_refresh_rate = 120
-  vim.g.neovide_profiler = false
-  vim.keymap.set('n', '<D-s>', ':w<CR>') -- Save
-  vim.keymap.set('v', '<D-c>', '"+y') -- Copy
-  vim.keymap.set('n', '<D-v>', '"+P') -- Paste normal mode
-  vim.keymap.set('v', '<D-v>', '"+P') -- Paste visual mode
-  vim.keymap.set('c', '<D-v>', '<C-R>+') -- Paste command mode
-  vim.keymap.set('i', '<D-v>', '<ESC>l"+Pli') -- Paste insert mode
+    vim.o.guifont = "Iosevka:h12"
+    vim.g.neovide_cursor_vfx_mode = "railgun"
+    vim.g.neovide_refresh_rate = 120
+    vim.g.neovide_profiler = false
+    vim.keymap.set('n', '<D-s>', ':w<CR>')      -- Save
+    vim.keymap.set('v', '<D-c>', '"+y')         -- Copy
+    vim.keymap.set('n', '<D-v>', '"+P')         -- Paste normal mode
+    vim.keymap.set('v', '<D-v>', '"+P')         -- Paste visual mode
+    vim.keymap.set('c', '<D-v>', '<C-R>+')      -- Paste command mode
+    vim.keymap.set('i', '<D-v>', '<ESC>l"+Pli') -- Paste insert mode
 end
 
 
 -- Allow clipboard copy paste in neovim
-vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true })
 
 
 
 
 -- if color scheme is dump-quiet
--- if vim.g.colors_name == "dump-quiet" then
---     vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#000000", fg = "#ffffff" })
---     vim.api.nvim_set_hl(0, "WinSeparator", { bg = "#1c1b1b", fg = "#000000" })
---     vim.api.nvim_set_hl(0, "IblIndent", { fg = "#000000" })
---     vim.api.nvim_set_hl(0, "IblScope", { fg = "#FFCE6B" })
---     vim.api.nvim_set_hl(0, "CursorColumn", { fg = "#FFCE6B"})
--- end
+if vim.g.colors_name == "dump-quiet" then
+    vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#000000", fg = "#ffffff" })
+    vim.api.nvim_set_hl(0, "WinSeparator", { bg = "#1c1b1b", fg = "#000000" })
+    vim.api.nvim_set_hl(0, "IblIndent", { fg = "#000000" })
+    vim.api.nvim_set_hl(0, "IblScope", { fg = "#FFCE6B" })
+    vim.api.nvim_set_hl(0, "CursorColumn", { fg = "#FFCE6B" })
+end
 
 vim.g.zig_fmt_autosave = 0
 
