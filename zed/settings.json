@@ -1,0 +1,35 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "theme": "peristocles",
+  "vim_mode": true,
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
+  "line_indicator_format": "long",
+  "relative_line_numbers": true,
+  "current_line_highlight": "line",
+  "buffer_line_height": "comfortable",
+  "tab_size": 4,
+  "format_on_save": "off",
+  "hard_tabs": false,
+  "show_whitespaces": "selection",
+  "show_wrap_guides": true,
+  "language_overrides": {
+    "TypeScript": {
+      "format_on_save": "on"
+    },
+    "C++": {
+      "tab_size": 8,
+      "format_on_save": "off",
+      "hard_tabs": true,
+      "remove_trailing_whitespace_on_save": false,
+      "show_whitespaces": "selection"
+    }
+  }
+}
