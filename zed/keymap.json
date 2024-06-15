@@ -5,7 +5,27 @@
             "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
             "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
             "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+
+            // hunk stuff
+            "] c": "editor::GoToHunk",
+            "[ c": "editor::GoToPrevHunk",
+            ", h d": "editor::ToggleHunkDiff",
+            ", h r": "editor::RevertSelectedHunks",
+
+            // diagnostic stuff
+            "] d": "editor::GoToDiagnostic",
+            "[ d": "editor::GoToPrevDiagnostic",
+            ", d d": "diagnostics::Deploy",
+
+            // navigation stuff
+            ", f f": "file_finder::Toggle",
+            ", f s": "project_symbols::Toggle",
+
+            // search
+            ", s": "pane::DeploySearch",
+            "/": "buffer_search::Deploy" // this helps with disable case sesitivity somehow
+
         }
     }
 ]
