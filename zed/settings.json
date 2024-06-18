@@ -7,7 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-    "theme": "Graphene",
+    "theme": "Github Dark",
     "vim_mode": true,
     "ui_font_size": 14,
     "buffer_font_size": 14,
@@ -20,6 +20,8 @@
     "hard_tabs": false,
     "show_whitespaces": "selection",
     "show_wrap_guides": true,
+    "ui_font_family": "Mononoki",
+    "buffer_font_family": "Mononoki",
     "language_overrides": {
         "TypeScript": {
             "format_on_save": "on"
