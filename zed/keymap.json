@@ -24,8 +24,10 @@
 
             // search
             ", s": "pane::DeploySearch",
-            "/": "buffer_search::Deploy" // this helps with disable case sesitivity somehow
+            "/": "buffer_search::Deploy", // this helps with disable case sesitivity somehow
 
+            // command line
+            ", c": "workspace::NewTerminal"
         }
     }
 ]

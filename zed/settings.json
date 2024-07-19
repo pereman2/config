@@ -7,7 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-    "theme": "Github Dark",
+    "theme": "Gruvbox Dark Hard",
     "vim_mode": true,
     "ui_font_size": 14,
     "buffer_font_size": 14,
@@ -16,22 +16,52 @@
     "current_line_highlight": "line",
     "buffer_line_height": "comfortable",
     "tab_size": 4,
-    "format_on_save": "on",
+    // "format_on_save": "off",
     "hard_tabs": false,
     "show_whitespaces": "selection",
     "show_wrap_guides": true,
     "ui_font_family": "Mononoki",
     "buffer_font_family": "Mononoki",
-    "language_overrides": {
-        "TypeScript": {
-            "format_on_save": "on"
+    "remove_trailing_whitespace_on_save": false,
+    "languages": {
+        "Rust": {
+            "tab_size": 4,
+            "format_on_save": "on",
+            "hard_tabs": false
         },
         "C++": {
+            "format_on_save": "off",
             "tab_size": 2,
-            "format_on_save": "on",
             "hard_tabs": false,
-            "remove_trailing_whitespace_on_save": false,
-            "show_whitespaces": "selection"
+            "remove_trailing_whitespace_on_save": false
+        },
+        "TSX": {
+            "language_servers": ["typescript-language-server", "!vtsls"],
+            "format_on_save": "on",
+            "tab_size": 2
+        },
+        "TypeScript": {
+            "language_servers": ["typescript-language-server", "!vtsls"],
+            "format_on_save": "on",
+            "tab_size": 2
+        },
+        "JavaScript": {
+            "language_servers": ["typescript-language-server", "!vtsls"],
+            "format_on_save": "on",
+            "tab_size": 2
+        }
+    },
+    "assistant": {
+        "version": "1",
+        "provider": {
+            "default_model": {
+                "name": "llama3:latest",
+                "max_tokens": 2048,
+                "keep_alive": -1
+            },
+            "name": "ollama",
+            // Recommended setting to allow for model startup
+            "low_speed_timeout_in_seconds": 60
         }
     }
 }
