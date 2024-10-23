@@ -96,14 +96,5 @@ hi      VertSplit    guifg=fg      guibg=bg      ctermfg=NONE ctermbg=NONE  gui=
 hi      DiagnosticError    guifg=#dadada      guibg=rgba(215,95,95,0.2)      ctermfg=NONE ctermbg=NONE  gui=NONE cterm=NONE
 
 hi      TelescopeBorder    guifg=#d75f5f      guibg=NONE      ctermfg=NONE ctermbg=NONE  gui=NONE cterm=NONE
-
-hi      Pmenu        guifg=#ffffff guibg=NONE      ctermfg=255 ctermbg=NONE gui=NONE cterm=NONE
-hi      PmenuSel     guifg=#ffffff guibg=#444444 ctermfg=255  ctermbg=238  gui=NONE cterm=NONE
-hi      PmenuSbar    guifg=#ffffff guibg=NONE ctermfg=255  ctermbg=242  gui=NONE cterm=NONE
-hi      PmenuThumb   guifg=#ffffff guibg=NONE ctermfg=255  ctermbg=176  gui=NONE cterm=NONE
-
-hi GitSignsAdd    guifg=#00ff00 ctermfg=2
-hi GitSignsChange guifg=#ffff00 ctermfg=3
-hi GitSignsDelete guifg=#ff0000 ctermfg=1
 " Created with vim-colorscheme-edit v1.0.0
 "   https://github.com/nokobear/vim-colorscheme-edit

@@ -60,7 +60,7 @@ vim.g.neoformat_c_clangformat = {
 
 
 if vim.g.neovide then
-    vim.o.guifont = "Iosevka:h12"
+    -- vim.o.guifont = "Iosevka:h12"
     vim.g.neovide_cursor_vfx_mode = "railgun"
     vim.g.neovide_refresh_rate = 120
     vim.g.neovide_profiler = false
@@ -86,7 +86,7 @@ vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true 
 if vim.g.colors_name == "dump-quiet" then
     vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#000000", fg = "#ffffff" })
     vim.api.nvim_set_hl(0, "WinSeparator", { bg = "#1c1b1b", fg = "#000000" })
-    vim.api.nvim_set_hl(0, "IblIndent", { fg = "#000000" })
+    vim.api.nvim_set_hl(0, "IblIndent", { fg = "#1f1f1f" })
     vim.api.nvim_set_hl(0, "IblScope", { fg = "#FFCE6B" })
     vim.api.nvim_set_hl(0, "CursorColumn", { fg = "#FFCE6B" })
 end

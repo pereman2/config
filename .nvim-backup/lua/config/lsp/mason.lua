@@ -9,13 +9,15 @@ if not status_ok_1 then
 end
 
 local servers = {
-    rust_analyzer = {},
+    rust_analyzer = {
+        inlay_hints = { enabled = true }
+    },
     clangd = {},
-    tsserver = {},
-    cssmodules_ls = {},
-    emmet_ls = {},
-    html = {},
-    pyright = {},
+    -- tsserver = {},
+    -- cssmodules_ls = {},
+    -- emmet_ls = {},
+    -- html = {},
+    -- pyright = {},
     bashls = {},
     gopls = {
         cmd = { "gopls" }
@@ -99,6 +101,6 @@ for server, opts in pairs(servers) do
     lspconfig[server].setup(opts)
 end
 
-require('lspconfig').clangd.setup{
-    cmd = {"/usr/bin/clangd"}
+require('lspconfig').clangd.setup {
+    cmd = { "/usr/bin/clangd" }
 }
