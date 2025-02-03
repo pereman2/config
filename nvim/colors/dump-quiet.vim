@@ -15,7 +15,6 @@ endif
 "   syntax reset
 " endif
 let g:colors_name=s:colors_name
-set signcolumn=no
 set fillchars="vert:\ "
 
 

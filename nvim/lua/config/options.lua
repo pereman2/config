@@ -11,7 +11,7 @@ vim.opt.smartindent = true
 vim.opt.signcolumn = "yes"
 
 if vim.g.neovide then
-  -- vim.o.guifont = "Iosevka:h12"
+  vim.o.guifont = "Jetbrainsmono nerd font:h14"
   vim.g.neovide_cursor_vfx_mode = "railgun"
   vim.g.neovide_refresh_rate = 120
   vim.g.neovide_profiler = false

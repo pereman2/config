@@ -16,6 +16,8 @@ map("n", "<leader>fr", ":Telescope lsp_references<CR>", nil)
 map("n", "<leader>fa", ":Telescope find_files<CR>", nil)
 map("n", "<leader>fsd", ":Telescope lsp_document_symbols<CR>", nil)
 map("n", "<leader>fsa", ":Telescope lsp_dynamic_workspace_symbols<CR>", nil)
+map("n", "gs", ":Telescope lsp_document_symbols<CR>", nil)
+map("n", "gS", ":Telescope lsp_dynamic_workspace_symbols<CR>", nil)
 map("n", "<leader>fso", ":SymbolsOutlineOpen<CR>", nil)
 
 map("n", "<leader>fa", ":Telescope find_files<CR>", nil)
@@ -35,7 +37,7 @@ map("n", "<leader>4", ':lua require("harpoon.ui").nav_file(4)<CR>', nil)
 
 map("n", ",<Space>", ":nohlsearch<CR>", { silent = true })
 
-map("n", "<leader>s", '<cmd>lua require("spectre").toggle()<CR>', nil)
+map("n", "<leader>s", ":GrugFar<CR>", nil)
 
 map("n", "<C-l>", "<C-w>l", nil)
 map("n", "<C-h>", "<C-w>h", nil)
@@ -68,6 +70,11 @@ map("n", "[s", ":ISwapWithLeft<CR>", nil)
 map("n", "]s", ":ISwapWithRight<CR>", nil)
 
 -- dap stuff
+map("n", "<F5>", ':lua require("dap").continue()<CR>', nil)
+map("n", "<F8>", ':lua require("dap").step_over()<CR>', nil)
+map("n", "<F9>", ':lua require("dap").step_into()<CR>', nil)
+map("n", "<F10>", ':lua require("dap").step_out()<CR>', nil)
+
 map("n", "<leader>dc", ':lua require("dap").continue()<CR>', nil)
 map("n", "<leader>dso", ':lua require("dap").step_over()<CR>', nil)
 map("n", "<leader>dsi", ':lua require("dap").step_into()<CR>', nil)
