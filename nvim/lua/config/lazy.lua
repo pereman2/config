@@ -33,7 +33,7 @@ require("lazy").setup({
       "flash",
     },
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = { colorscheme = { "tokyodark", "tokyonight", "habamax" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
@@ -54,4 +54,7 @@ require("lazy").setup({
       },
     },
   },
+})
+require("mason-lspconfig").setup_handlers({
+  ["rust_analyzer"] = function() end,
 })

@@ -5,5 +5,6 @@ return {
     config = function()
       require("distant"):setup()
     end,
+    lazy = true,
   },
 }

@@ -104,5 +104,8 @@ hi      PmenuThumb   guifg=#ffffff guibg=NONE ctermfg=255  ctermbg=176  gui=NONE
 hi GitSignsAdd    guifg=#00ff00 ctermfg=2
 hi GitSignsChange guifg=#ffff00 ctermfg=3
 hi GitSignsDelete guifg=#ff0000 ctermfg=1
+hi @lsp.type.macro guifg=#FFCE6B ctermfg=1
+hi @lsp.type.enumMember guifg=#409dd4 ctermfg=1
+
 " Created with vim-colorscheme-edit v1.0.0
 "   https://github.com/nokobear/vim-colorscheme-edit

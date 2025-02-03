@@ -11,8 +11,8 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map("n", "<leader>ff", ":Telescope git_files<CR>", nil)
-map("n", "<leader>fr", ":Telescope lsp_references<CR>", nil)
+-- map("n", "<leader>ff", ":Telescope git_files<CR>", nil)
+-- map("n", "<leader>fr", ":Telescope lsp_references<CR>", nil)
 map("n", "<leader>fa", ":Telescope find_files<CR>", nil)
 map("n", "<leader>fsd", ":Telescope lsp_document_symbols<CR>", nil)
 map("n", "<leader>fsa", ":Telescope lsp_dynamic_workspace_symbols<CR>", nil)
@@ -32,7 +32,6 @@ map("n", "<leader>l", ':lua require("harpoon.ui").toggle_quick_menu()<CR>', nil)
 map("n", "<leader>1", ':lua require("harpoon.ui").nav_file(1)<CR>', nil)
 map("n", "<leader>2", ':lua require("harpoon.ui").nav_file(2)<CR>', nil)
 map("n", "<leader>3", ':lua require("harpoon.ui").nav_file(3)<CR>', nil)
-map("n", "<leader>4", ':lua require("harpoon.ui").nav_file(4)<CR>', nil)
 map("n", "<leader>4", ':lua require("harpoon.ui").nav_file(4)<CR>', nil)
 
 map("n", ",<Space>", ":nohlsearch<CR>", { silent = true })
@@ -87,7 +86,8 @@ map("n", "<leader>dt", ":DapTerminate<CR>", nil)
 -- end dap
 
 -- open config
-map("n", "<leader>oc", ":e ~/.config/nvim/lua/config<CR>", nil)
+map("n", "<leader>5", ":e ~/.config/nvim/lua/config<CR>", nil)
+map("n", "<leader>6", ":e ~/orgfiles/refile.org<CR>", nil)
 map("n", "<leader>od", ":e ~/.config/nvim/lua/config/dap.lua<CR>", nil)
 
 vim.api.nvim_command("set clipboard=unnamedplus")
